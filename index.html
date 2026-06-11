@@ -1,110 +1,114 @@
-cat > /mnt/user-data/outputs/index.html << 'ENDOFFILE'
+cat > /home/claude/cynthia-organic/index.html << 'HTMLEOF'
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Sinthiya Organic Oil – অর্গানিক হেয়ার কেয়ার</title>
-<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet"/>
-<style>
-:root{--gd:#1a3a2a;--gm:#2d6a4f;--gs:#52b788;--cream:#f8f4ec;--gold:#c8933a;--gl:#f0c96e;--td:#1c1c1c;--tm:#4a4a4a;--w:#fff;--r:12px;}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Hind Siliguri',sans-serif;background:var(--cream);color:var(--td);}
-nav{position:sticky;top:0;z-index:100;background:var(--gd);display:flex;align-items:center;justify-content:space-between;padding:14px 24px;box-shadow:0 2px 12px rgba(0,0,0,.25);}
-.nav-logo{color:var(--gl);font-family:'Playfair Display',serif;font-size:1.3rem;}
-.nav-logo span{color:var(--gs);}
-.nav-links a{color:#cde8d8;text-decoration:none;margin-left:20px;font-size:.92rem;}
-.nav-links a:hover{color:var(--gl);}
-.hero{background:linear-gradient(135deg,var(--gd) 0%,var(--gm) 100%);color:var(--w);text-align:center;padding:72px 20px 56px;}
-.hero-eyebrow{font-size:.78rem;letter-spacing:3px;text-transform:uppercase;color:var(--gl);margin-bottom:14px;}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,6vw,3.4rem);line-height:1.2;margin-bottom:16px;}
-.hero h1 span{color:var(--gl);}
-.hero p{color:#cde8d8;max-width:500px;margin:0 auto 32px;font-size:1.05rem;line-height:1.7;}
-.hero-btn{display:inline-block;background:var(--gold);color:var(--w);padding:14px 36px;border-radius:50px;font-weight:600;font-size:1rem;text-decoration:none;transition:background .2s,transform .15s;}
-.hero-btn:hover{background:var(--gl);color:var(--gd);transform:translateY(-2px);}
-section{padding:56px 20px;}
-.section-title{font-family:'Playfair Display',serif;font-size:1.9rem;color:var(--gd);margin-bottom:8px;}
-.section-sub{color:var(--tm);font-size:.97rem;margin-bottom:36px;}
-.container{max-width:1000px;margin:0 auto;}
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Sinthiya Organic Oil – অর্গানিক হেয়ার কেয়ার</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--green-deep:#1a3a2a;--green-mid:#2d6a4f;--green-soft:#52b788;--cream:#f8f4ec;--gold:#c8933a;--gold-light:#f0c96e;--text-dark:#1c1c1c;--text-mid:#4a4a4a;--white:#fff;--radius:12px;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Hind Siliguri',sans-serif;background:var(--cream);color:var(--text-dark);}
+    nav{position:sticky;top:0;z-index:100;background:var(--green-deep);display:flex;align-items:center;justify-content:space-between;padding:14px 24px;box-shadow:0 2px 12px rgba(0,0,0,.25);}
+    .nav-logo{color:var(--gold-light);font-family:'Playfair Display',serif;font-size:1.3rem;}
+    .nav-logo span{color:var(--green-soft);}
+    .nav-links a{color:#cde8d8;text-decoration:none;margin-left:20px;font-size:.92rem;}
+    .nav-links a:hover{color:var(--gold-light);}
+    .hero{background:linear-gradient(135deg,var(--green-deep) 0%,var(--green-mid) 100%);color:var(--white);text-align:center;padding:72px 20px 56px;}
+    .hero-eyebrow{font-size:.78rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold-light);margin-bottom:14px;}
+    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,6vw,3.4rem);line-height:1.2;margin-bottom:16px;}
+    .hero h1 span{color:var(--gold-light);}
+    .hero p{color:#cde8d8;max-width:500px;margin:0 auto 32px;font-size:1.05rem;line-height:1.7;}
+    .hero-btn{display:inline-block;background:var(--gold);color:var(--white);padding:14px 36px;border-radius:50px;font-weight:600;font-size:1rem;text-decoration:none;transition:background .2s,transform .15s;}
+    .hero-btn:hover{background:var(--gold-light);color:var(--green-deep);transform:translateY(-2px);}
 
-/* BENEFITS */
-#benefits{background:var(--w);}
-.benefits-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;}
-.benefit-card{background:var(--cream);border-radius:var(--r);padding:24px 20px;text-align:center;border:2px solid #e8f0eb;transition:box-shadow .2s,border-color .2s;}
-.benefit-card:hover{box-shadow:0 6px 20px rgba(45,106,79,.12);border-color:var(--gs);}
-.benefit-icon{font-size:2.2rem;margin-bottom:12px;}
-.benefit-card h4{font-size:.97rem;font-weight:700;color:var(--gd);margin-bottom:6px;}
-.benefit-card p{font-size:.84rem;color:var(--tm);line-height:1.6;}
+    /* BENEFITS STRIP */
+    .benefits-strip{background:var(--white);padding:32px 20px;}
+    .benefits-strip .container{max-width:1000px;margin:0 auto;}
+    .benefits-title{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--green-deep);text-align:center;margin-bottom:6px;}
+    .benefits-sub{text-align:center;color:var(--text-mid);font-size:.92rem;margin-bottom:24px;}
+    .benefits-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;}
+    .benefit-item{display:flex;align-items:flex-start;gap:12px;background:#f0fdf4;border-radius:10px;padding:16px;}
+    .benefit-icon{font-size:1.6rem;flex-shrink:0;}
+    .benefit-text strong{display:block;font-size:.92rem;color:var(--green-deep);margin-bottom:3px;}
+    .benefit-text span{font-size:.82rem;color:var(--text-mid);line-height:1.5;}
 
-/* PRODUCTS */
-#products{background:var(--cream);}
-.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:24px;}
-.product-card{border:2px solid #e8f0eb;border-radius:var(--r);padding:28px 24px;background:var(--w);transition:box-shadow .2s,border-color .2s;position:relative;overflow:hidden;}
-.product-card:hover{box-shadow:0 8px 28px rgba(45,106,79,.15);border-color:var(--gs);}
-.product-badge{position:absolute;top:16px;right:16px;background:var(--gold);color:var(--w);font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:20px;}
-.product-img{width:100%;height:160px;object-fit:cover;border-radius:8px;margin-bottom:14px;background:#edf7f1;display:flex;align-items:center;justify-content:center;font-size:3.5rem;}
-.product-img img{width:100%;height:100%;object-fit:cover;border-radius:8px;}
-.product-name{font-weight:700;font-size:1.1rem;color:var(--gd);margin-bottom:6px;}
-.product-desc{font-size:.88rem;color:var(--tm);line-height:1.6;margin-bottom:16px;}
-.product-price{font-size:1.6rem;font-weight:700;color:var(--gm);margin-bottom:4px;}
-.product-delivery{font-size:.8rem;color:var(--tm);margin-bottom:18px;}
-.order-btn{display:block;width:100%;padding:12px;border-radius:8px;background:var(--gm);color:var(--w);font-weight:600;font-size:.97rem;border:none;cursor:pointer;text-align:center;transition:background .2s;font-family:'Hind Siliguri',sans-serif;}
-.order-btn:hover{background:var(--gd);}
+    section{padding:56px 20px;}
+    .section-title{font-family:'Playfair Display',serif;font-size:1.9rem;color:var(--green-deep);margin-bottom:8px;}
+    .section-sub{color:var(--text-mid);font-size:.97rem;margin-bottom:36px;}
+    .container{max-width:1000px;margin:0 auto;}
+    #products{background:var(--cream);}
+    .products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;}
+    .product-card{border:2px solid #e8f0eb;border-radius:var(--radius);padding:24px;background:var(--white);transition:box-shadow .2s,border-color .2s;position:relative;overflow:hidden;}
+    .product-card:hover{box-shadow:0 8px 28px rgba(45,106,79,.15);border-color:var(--green-soft);}
+    .product-badge{position:absolute;top:16px;right:16px;background:var(--gold);color:var(--white);font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:20px;}
+    .product-icon{font-size:2.4rem;margin-bottom:12px;}
+    .product-name{font-weight:700;font-size:1.1rem;color:var(--green-deep);margin-bottom:6px;}
+    .product-desc{font-size:.88rem;color:var(--text-mid);line-height:1.6;margin-bottom:10px;}
+    .product-benefits{list-style:none;margin-bottom:14px;}
+    .product-benefits li{font-size:.83rem;color:#2d6a4f;padding:3px 0;border-bottom:1px dashed #d5e8dc;}
+    .product-benefits li:last-child{border:none;}
+    .product-price{font-size:1.6rem;font-weight:700;color:var(--green-mid);margin-bottom:4px;}
+    .product-delivery{font-size:.8rem;color:var(--text-mid);margin-bottom:18px;}
+    .order-btn{display:block;width:100%;padding:12px;border-radius:8px;background:var(--green-mid);color:var(--white);font-weight:600;font-size:.97rem;border:none;cursor:pointer;transition:background .2s;}
+    .order-btn:hover{background:var(--green-deep);}
 
-/* MODAL */
-.modal-overlay{display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.55);justify-content:center;align-items:center;padding:20px;}
-.modal-overlay.active{display:flex;}
-.modal{background:var(--w);border-radius:16px;width:100%;max-width:480px;max-height:90vh;overflow-y:auto;padding:32px 28px;position:relative;}
-.modal-close{position:absolute;top:14px;right:18px;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--tm);}
-.modal h2{font-family:'Playfair Display',serif;color:var(--gd);margin-bottom:6px;font-size:1.5rem;}
-.modal-product-info{background:#edf7f1;border-radius:8px;padding:12px 16px;margin-bottom:22px;}
-.modal-product-info p{font-size:.9rem;color:var(--gd);}
-.modal-product-info strong{font-size:1.1rem;}
-label{display:block;font-size:.87rem;font-weight:600;color:var(--tm);margin-bottom:5px;margin-top:14px;}
-input,select,textarea{width:100%;padding:11px 14px;border:1.5px solid #d5e8dc;border-radius:8px;font-family:'Hind Siliguri',sans-serif;font-size:.95rem;outline:none;background:var(--cream);color:var(--td);transition:border-color .2s;}
-input:focus,select:focus,textarea:focus{border-color:var(--gs);}
-textarea{resize:vertical;min-height:70px;}
-.delivery-info{background:#fffbf0;border:1px solid var(--gl);border-radius:8px;padding:10px 14px;margin-top:12px;font-size:.85rem;color:#7a5c10;}
-.total-box{background:var(--gd);color:var(--w);border-radius:8px;padding:14px 16px;margin-top:18px;}
-.total-box .row{display:flex;justify-content:space-between;font-size:.9rem;margin-bottom:4px;}
-.total-box .total-final{font-size:1.2rem;font-weight:700;border-top:1px solid rgba(255,255,255,.3);margin-top:8px;padding-top:8px;display:flex;justify-content:space-between;}
-.submit-btn{width:100%;margin-top:20px;padding:14px;background:var(--gold);color:var(--w);border:none;border-radius:10px;font-size:1.05rem;font-weight:700;cursor:pointer;transition:background .2s;font-family:'Hind Siliguri',sans-serif;}
-.submit-btn:hover{background:#b07d20;}
-.submit-btn:disabled{background:#aaa;cursor:not-allowed;}
-.error-text{color:#c0392b;font-size:.82rem;margin-top:4px;}
+    /* MODAL */
+    .modal-overlay{display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.55);justify-content:center;align-items:center;padding:16px;}
+    .modal-overlay.active{display:flex;}
+    .modal{background:var(--white);border-radius:16px;width:100%;max-width:500px;max-height:92vh;overflow-y:auto;padding:28px 24px;position:relative;}
+    .modal-close{position:absolute;top:14px;right:18px;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--text-mid);}
+    .modal h2{font-family:'Playfair Display',serif;color:var(--green-deep);margin-bottom:6px;font-size:1.4rem;}
+    .modal-product-info{background:#edf7f1;border-radius:8px;padding:12px 16px;margin-bottom:18px;}
+    .modal-product-info p{font-size:.9rem;color:var(--green-deep);}
+    label{display:block;font-size:.85rem;font-weight:600;color:var(--text-mid);margin-bottom:4px;margin-top:12px;}
+    input,select,textarea{width:100%;padding:10px 12px;border:1.5px solid #d5e8dc;border-radius:8px;font-family:'Hind Siliguri',sans-serif;font-size:.93rem;outline:none;background:var(--cream);color:var(--text-dark);transition:border-color .2s;}
+    input:focus,select:focus,textarea:focus{border-color:var(--green-soft);}
+    textarea{resize:vertical;min-height:60px;}
+    .delivery-info{background:#fffbf0;border:1px solid var(--gold-light);border-radius:8px;padding:10px 14px;margin-top:10px;font-size:.85rem;color:#7a5c10;}
+    .total-box{background:var(--green-deep);color:var(--white);border-radius:8px;padding:14px 16px;margin-top:14px;}
+    .total-box .row{display:flex;justify-content:space-between;font-size:.88rem;margin-bottom:4px;}
+    .total-box .total-final{font-size:1.2rem;font-weight:700;border-top:1px solid rgba(255,255,255,.3);margin-top:8px;padding-top:8px;display:flex;justify-content:space-between;}
+    .submit-btn{width:100%;margin-top:18px;padding:14px;background:var(--gold);color:var(--white);border:none;border-radius:10px;font-size:1.05rem;font-weight:700;cursor:pointer;transition:background .2s;font-family:'Hind Siliguri',sans-serif;}
+    .submit-btn:hover{background:#b07d20;}
+    .submit-btn:disabled{background:#aaa;cursor:not-allowed;}
+    .error-text{color:#c0392b;font-size:.8rem;margin-top:3px;}
 
-/* SUCCESS */
-#success-page{display:none;position:fixed;inset:0;z-index:9999;background:var(--cream);flex-direction:column;justify-content:center;align-items:center;padding:30px;text-align:center;}
-#success-page.active{display:flex;}
-.success-icon{font-size:4rem;margin-bottom:16px;}
-.success-title{font-family:'Playfair Display',serif;font-size:2rem;color:var(--gd);margin-bottom:12px;}
-.success-msg{color:var(--tm);max-width:420px;line-height:1.7;font-size:1rem;margin-bottom:24px;}
-.whatsapp-btn{display:inline-flex;align-items:center;gap:10px;background:#25d366;color:var(--w);padding:14px 28px;border-radius:50px;font-weight:700;text-decoration:none;font-size:1rem;transition:background .2s;}
-.whatsapp-btn:hover{background:#1da851;}
-.back-btn{display:inline-block;margin-top:14px;color:var(--gm);text-decoration:underline;cursor:pointer;font-size:.92rem;}
+    /* SUCCESS */
+    #success-page{display:none;position:fixed;inset:0;z-index:9999;background:var(--cream);flex-direction:column;justify-content:center;align-items:center;padding:30px;text-align:center;}
+    #success-page.active{display:flex;}
+    .success-icon{font-size:4rem;margin-bottom:16px;}
+    .success-title{font-family:'Playfair Display',serif;font-size:2rem;color:var(--green-deep);margin-bottom:12px;}
+    .success-msg{color:var(--text-mid);max-width:420px;line-height:1.7;font-size:1rem;margin-bottom:24px;}
+    .tracking-box{background:var(--white);border:2px solid var(--green-soft);border-radius:12px;padding:16px 24px;margin-bottom:24px;}
+    .tracking-box p{font-size:.85rem;color:var(--text-mid);margin-bottom:6px;}
+    .tracking-code{font-size:1.1rem;font-weight:700;color:var(--green-mid);}
+    .whatsapp-btn{display:inline-flex;align-items:center;gap:10px;background:#25d366;color:var(--white);padding:14px 28px;border-radius:50px;font-weight:700;text-decoration:none;font-size:1rem;}
+    .whatsapp-btn:hover{background:#1da851;}
+    .back-btn{display:inline-block;margin-top:14px;color:var(--green-mid);text-decoration:underline;cursor:pointer;font-size:.92rem;}
 
-/* WHY */
-#why{background:var(--gd);color:var(--w);}
-#why .section-title{color:var(--gl);}
-#why .section-sub{color:#9ecfb4;}
-.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;}
-.why-card{background:rgba(255,255,255,.08);border-radius:var(--r);padding:22px 20px;text-align:center;}
-.why-icon{font-size:2rem;margin-bottom:10px;}
-.why-card h4{font-size:.97rem;font-weight:600;margin-bottom:6px;color:var(--gl);}
-.why-card p{font-size:.85rem;color:#9ecfb4;line-height:1.6;}
-
-footer{background:var(--gd);color:#9ecfb4;text-align:center;padding:28px 20px;font-size:.85rem;border-top:1px solid rgba(255,255,255,.1);}
-footer strong{color:var(--gl);}
-@media(max-width:480px){.nav-links{display:none;}.modal{padding:24px 18px;}}
-</style>
+    /* WHY */
+    #why{background:var(--green-deep);color:var(--white);}
+    #why .section-title{color:var(--gold-light);}
+    #why .section-sub{color:#9ecfb4;}
+    .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;}
+    .why-card{background:rgba(255,255,255,.08);border-radius:var(--radius);padding:22px 20px;text-align:center;}
+    .why-icon{font-size:2rem;margin-bottom:10px;}
+    .why-card h4{font-size:.97rem;font-weight:600;margin-bottom:6px;color:var(--gold-light);}
+    .why-card p{font-size:.85rem;color:#9ecfb4;line-height:1.6;}
+    footer{background:var(--green-deep);color:#9ecfb4;text-align:center;padding:24px 20px;font-size:.85rem;border-top:1px solid rgba(255,255,255,.1);}
+    footer strong{color:var(--gold-light);}
+    @media(max-width:480px){.nav-links{display:none;}.modal{padding:20px 16px;}}
+  </style>
 </head>
 <body>
 
 <nav>
   <div class="nav-logo">Sinthiya <span>Organic</span> Oil</div>
   <div class="nav-links">
-    <a href="#benefits">উপকারিতা</a>
     <a href="#products">প্রোডাক্ট</a>
     <a href="#why">কেন আমরা?</a>
   </div>
@@ -117,19 +121,39 @@ footer strong{color:var(--gl);}
   <a href="#products" class="hero-btn">এখনই অর্ডার করুন →</a>
 </div>
 
-<!-- BENEFITS -->
-<section id="benefits">
+<!-- উপকারিতা -->
+<div class="benefits-strip">
   <div class="container">
-    <div class="section-title">ব্যবহারের উপকারিতা</div>
-    <p class="section-sub">Sinthiya Organic Oil নিয়মিত ব্যবহারে পাবেন</p>
+    <div class="benefits-title">আমাদের তেলের উপকারিতা</div>
+    <p class="benefits-sub">প্রমাণিত ফলাফল, প্রাকৃতিক উপাদানে</p>
     <div class="benefits-grid">
-      <div class="benefit-card"><div class="benefit-icon">🛑</div><h4>চুল পড়া বন্ধ</h4><p>মাত্র ১৪ দিনের মধ্যে চুল পড়া উল্লেখযোগ্যভাবে কমে যাবে।</p></div>
-      <div class="benefit-card"><div class="benefit-icon">📏</div><h4>চুল লম্বা হয়</h4><p>১ মাসে ৩–৪ ইঞ্চি চুল লম্বা করতে সাহায্য করে।</p></div>
-      <div class="benefit-card"><div class="benefit-icon">❄️</div><h4>খুশকি দূর করে</h4><p>খুশকি ও চুল ফাটা বন্ধ করে চুল করে নরম ও স্মুথ।</p></div>
-      <div class="benefit-card"><div class="benefit-icon">🌱</div><h4>নতুন চুল গজায়</h4><p>স্ক্যাল্পকে পুষ্টি দিয়ে নতুন চুল গজাতে সাহায্য করে।</p></div>
+      <div class="benefit-item">
+        <div class="benefit-icon">🛑</div>
+        <div class="benefit-text"><strong>১৪ দিনে চুল পড়া বন্ধ</strong><span>অতিরিক্ত চুল পড়া মাত্র ১৪ দিনেই উল্লেখযোগ্যভাবে কমে আসে</span></div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">📏</div>
+        <div class="benefit-text"><strong>১ মাসে ৩-৪ ইঞ্চি চুল বৃদ্ধি</strong><span>নিয়মিত ব্যবহারে মাত্র ১ মাসেই চুল ৩-৪ ইঞ্চি লম্বা হয়</span></div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">❄️</div>
+        <div class="benefit-text"><strong>খুশকি সম্পূর্ণ দূর করে</strong><span>মাথার ত্বকের খুশকি ও চুলকানি দূর করে স্বাস্থ্যকর স্কাল্প তৈরি করে</span></div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">✂️</div>
+        <div class="benefit-text"><strong>চুল ফাটা বন্ধ করে</strong><span>চুলের আগা ফাটা ও ভাঙা বন্ধ করে চুলকে মজবুত করে তোলে</span></div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">🌱</div>
+        <div class="benefit-text"><strong>নতুন চুল গজায়</strong><span>নিষ্ক্রিয় হেয়ার ফলিকলকে সক্রিয় করে নতুন চুল গজাতে সাহায্য করে</span></div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">💧</div>
+        <div class="benefit-text"><strong>চুলে আর্দ্রতা ধরে রাখে</strong><span>চুলকে ভেতর থেকে পুষ্টি দেয় ও প্রাকৃতিক আর্দ্রতা বজায় রাখে</span></div>
+      </div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- PRODUCTS -->
 <section id="products">
@@ -146,17 +170,17 @@ footer strong{color:var(--gl);}
     <div class="section-title">কেন Sinthiya Organic Oil?</div>
     <p class="section-sub">আমাদের বিশেষত্ব যা আমাদের আলাদা করে</p>
     <div class="why-grid">
-      <div class="why-card"><div class="why-icon">🌿</div><h4>১০০% অর্গানিক</h4><p>কোনো ক্ষতিকর কেমিক্যাল নেই, সম্পূর্ণ প্রাকৃতিক উপাদান</p></div>
-      <div class="why-card"><div class="why-icon">🚚</div><h4>দ্রুত ডেলিভারি</h4><p>সারাদেশে নির্ভরযোগ্য ডেলিভারি সার্ভিস</p></div>
-      <div class="why-card"><div class="why-icon">💬</div><h4>WhatsApp সাপোর্ট</h4><p>অর্ডারের পরেই WhatsApp-এ কনফার্মেশন পাবেন</p></div>
-      <div class="why-card"><div class="why-icon">✅</div><h4>ক্যাশ অন ডেলিভারি</h4><p>পণ্য হাতে পেয়ে টাকা দিন, ঝামেলাহীন কেনাকাটা</p></div>
+      <div class="why-card"><div class="why-icon">🌿</div><h4>১০০% অর্গানিক</h4><p>কোনো ক্ষতিকর কেমিক্যাল নেই</p></div>
+      <div class="why-card"><div class="why-icon">🚚</div><h4>দ্রুত ডেলিভারি</h4><p>SteadFast কুরিয়ারে সারাদেশে</p></div>
+      <div class="why-card"><div class="why-icon">💬</div><h4>WhatsApp সাপোর্ট</h4><p>অর্ডারের পরেই কনফার্মেশন</p></div>
+      <div class="why-card"><div class="why-icon">✅</div><h4>ক্যাশ অন ডেলিভারি</h4><p>পণ্য পেয়ে টাকা দিন</p></div>
     </div>
   </div>
 </section>
 
 <footer>
   <strong>Sinthiya Organic Oil</strong> &nbsp;|&nbsp; অর্গানিক হেয়ার কেয়ার<br/>
-  <span style="font-size:.8rem;opacity:.7;">© 2025 সর্বস্বত্ব সংরক্ষিত</span>
+  <span style="font-size:.78rem;opacity:.7;">© 2025 সর্বস্বত্ব সংরক্ষিত</span>
 </footer>
 
 <!-- ORDER MODAL -->
@@ -165,182 +189,57 @@ footer strong{color:var(--gl);}
     <button class="modal-close" onclick="closeModal()">✕</button>
     <h2>অর্ডার করুন</h2>
     <div class="modal-product-info" id="modal-product-info"></div>
+
     <label>আপনার নাম *</label>
     <input type="text" id="cust-name" placeholder="পূর্ণ নাম লিখুন"/>
     <div class="error-text" id="err-name"></div>
+
     <label>মোবাইল নম্বর * (WhatsApp)</label>
     <input type="tel" id="cust-phone" placeholder="01XXXXXXXXX" maxlength="11"/>
     <div class="error-text" id="err-phone"></div>
-    <label>ঠিকানা *</label>
-    <textarea id="cust-address" placeholder="বিস্তারিত ঠিকানা লিখুন (বাড়ি/রোড/এলাকা)"></textarea>
+
+    <label>বিস্তারিত ঠিকানা *</label>
+    <textarea id="cust-address" placeholder="বাড়ি নং / রোড / এলাকা"></textarea>
     <div class="error-text" id="err-address"></div>
+
     <label>জেলা *</label>
-    <select id="cust-district" onchange="updateDelivery()">
+    <select id="cust-district" onchange="onDistrictChange()">
       <option value="">-- জেলা নির্বাচন করুন --</option>
-      <option value="dhaka">ঢাকা (ঢাকার ভেতরে)</option>
-      <option value="outside">চট্টগ্রাম</option>
-      <option value="outside">সিলেট</option>
-      <option value="outside">রাজশাহী</option>
-      <option value="outside">খুলনা</option>
-      <option value="outside">বরিশাল</option>
-      <option value="outside">রংপুর</option>
-      <option value="outside">ময়মনসিংহ</option>
-      <option value="outside">কুমিল্লা</option>
-      <option value="outside">নারায়ণগঞ্জ</option>
-      <option value="outside">গাজীপুর</option>
-      <option value="outside">অন্যান্য জেলা</option>
     </select>
     <div class="error-text" id="err-district"></div>
+
+    <label>থানা / উপজেলা *</label>
+    <select id="cust-thana" onchange="updateDelivery()">
+      <option value="">-- থানা নির্বাচন করুন --</option>
+    </select>
+    <div class="error-text" id="err-thana"></div>
+
     <div class="delivery-info" id="delivery-info" style="display:none"></div>
     <div class="total-box" id="total-box" style="display:none"></div>
+
     <button class="submit-btn" id="submit-btn" onclick="submitOrder()">✅ অর্ডার কনফার্ম করুন</button>
-    <p style="font-size:.78rem;color:#999;text-align:center;margin-top:10px;">অর্ডার করলে আপনি আমাদের শর্তাবলীতে সম্মত হচ্ছেন।</p>
+    <p style="font-size:.75rem;color:#aaa;text-align:center;margin-top:8px;">অর্ডার করলে আপনি আমাদের শর্তাবলীতে সম্মত হচ্ছেন।</p>
   </div>
 </div>
 
 <!-- SUCCESS PAGE -->
 <div id="success-page">
   <div class="success-icon">🎉</div>
-  <div class="success-title">অর্ডার সফল হয়েছে!</div>
-  <p class="success-msg">আপনার অর্ডারটি সফলভাবে প্লেস হয়েছে। আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব ইনশাআল্লাহ।</p>
+  <div class="success-title">অর্ডার সফল!</div>
+  <p class="success-msg">আপনার অর্ডার নিশ্চিত হয়েছে। নিচের WhatsApp বাটনে ক্লিক করে আমাদের জানান।</p>
+  <div class="tracking-box">
+    <p>অর্ডার রেফারেন্স নম্বর</p>
+    <div class="tracking-code" id="tracking-code">—</div>
+  </div>
   <a id="whatsapp-confirm-btn" href="#" target="_blank" class="whatsapp-btn">
     <span>📲</span> WhatsApp-এ কনফার্ম করুন
   </a>
   <div class="back-btn" onclick="goBack()">← আরও অর্ডার করুন</div>
 </div>
 
-<script>
-// ═══════════════════════════════════
-// DATA — localStorage থেকে লোড হয়
-// ═══════════════════════════════════
-const DEFAULT_PRODUCTS = [
-  {id:"student-combo",name:"স্টুডেন্ট হেয়ার কম্বো",price:500,badge:"অফার ১",description:"হাফ মাস (১৫ দিন) ব্যবহার করতে পারবেন। স্টুডেন্টদের জন্য সাশ্রয়ী অর্গানিক হেয়ার কেয়ার সেট।",active:true,img:""},
-  {id:"medium-combo",name:"মিডিয়াম হেয়ার কম্বো",price:750,badge:"অফার ২",description:"হাফ মাস (১৫ দিন) ব্যবহার করতে পারবেন। মাঝারি চুলের জন্য পরিপূর্ণ অর্গানিক কম্বো।",active:true,img:""},
-  {id:"regular-combo",name:"রেগুলার হেয়ার কম্বো",price:1000,badge:"অফার ৩",description:"পুরো ১ মাস ব্যবহার করতে পারবেন। সম্পূর্ণ মাসিক হেয়ার কেয়ার সলিউশন।",active:true,img:""}
-];
-const DELIVERY = {dhaka:80,outside:130};
-const WA_NUMBER = "8801624314890";
-
-function getProducts(){
-  const s = localStorage.getItem("sinthiya_products");
-  return s ? JSON.parse(s) : DEFAULT_PRODUCTS;
-}
-
-// ═══════════════════════════════════
-// RENDER PRODUCTS
-// ═══════════════════════════════════
-function renderProducts(){
-  const grid = document.getElementById("products-grid");
-  const products = getProducts();
-  grid.innerHTML = "";
-  products.filter(p=>p.active).forEach(p=>{
-    const imgHtml = p.img
-      ? `<div class="product-img"><img src="${p.img}" alt="${p.name}"/></div>`
-      : `<div class="product-img" style="display:flex;align-items:center;justify-content:center;height:160px;background:#edf7f1;border-radius:8px;margin-bottom:14px;font-size:3.5rem;">🌿</div>`;
-    grid.innerHTML += `
-      <div class="product-card">
-        <span class="product-badge">${p.badge}</span>
-        ${imgHtml}
-        <div class="product-name">${p.name}</div>
-        <div class="product-desc">${p.description}</div>
-        <div class="product-price">৳${p.price.toLocaleString()}</div>
-        <div class="product-delivery">🚚 ঢাকা: ৳${DELIVERY.dhaka} | বাইরে: ৳${DELIVERY.outside}</div>
-        <button class="order-btn" onclick="openModal('${p.id}')">অর্ডার করুন →</button>
-      </div>`;
-  });
-}
-
-// ═══════════════════════════════════
-// MODAL
-// ═══════════════════════════════════
-let selProduct = null;
-function openModal(id){
-  const products = getProducts();
-  selProduct = products.find(p=>p.id===id);
-  document.getElementById("modal-product-info").innerHTML =
-    `<p><strong>${selProduct.name}</strong></p><p style="margin-top:4px;font-size:.85rem;color:#2d6a4f;">${selProduct.description}</p>`;
-  ["err-name","err-phone","err-address","err-district"].forEach(i=>document.getElementById(i).textContent="");
-  ["cust-name","cust-phone","cust-address"].forEach(i=>document.getElementById(i).value="");
-  document.getElementById("cust-district").value="";
-  document.getElementById("delivery-info").style.display="none";
-  document.getElementById("total-box").style.display="none";
-  document.getElementById("submit-btn").disabled=false;
-  document.getElementById("submit-btn").textContent="✅ অর্ডার কনফার্ম করুন";
-  document.getElementById("modal-overlay").classList.add("active");
-}
-function closeModal(){
-  document.getElementById("modal-overlay").classList.remove("active");
-  selProduct=null;
-}
-document.getElementById("modal-overlay").addEventListener("click",function(e){if(e.target===this)closeModal();});
-
-function updateDelivery(){
-  const d = document.getElementById("cust-district").value;
-  if(!d||!selProduct) return;
-  const fee = DELIVERY[d];
-  const total = selProduct.price + fee;
-  const label = d==="dhaka"?"ঢাকার মধ্যে":"ঢাকার বাইরে";
-  document.getElementById("delivery-info").style.display="block";
-  document.getElementById("delivery-info").innerHTML=`📦 ${label} ডেলিভারি চার্জ: <strong>৳${fee}</strong>`;
-  document.getElementById("total-box").style.display="block";
-  document.getElementById("total-box").innerHTML=`
-    <div class="row"><span>পণ্যের মূল্য</span><span>৳${selProduct.price}</span></div>
-    <div class="row"><span>ডেলিভারি চার্জ</span><span>৳${fee}</span></div>
-    <div class="total-final"><span>সর্বমোট</span><span>৳${total}</span></div>`;
-}
-
-// ═══════════════════════════════════
-// SUBMIT — WhatsApp only (no API)
-// ═══════════════════════════════════
-function validate(){
-  let ok=true;
-  const n=document.getElementById("cust-name").value.trim();
-  const ph=document.getElementById("cust-phone").value.trim();
-  const ad=document.getElementById("cust-address").value.trim();
-  const di=document.getElementById("cust-district").value;
-  if(!n){document.getElementById("err-name").textContent="নাম আবশ্যক";ok=false;}
-  else document.getElementById("err-name").textContent="";
-  if(!/^01[3-9]\d{8}$/.test(ph)){document.getElementById("err-phone").textContent="সঠিক মোবাইল নম্বর দিন";ok=false;}
-  else document.getElementById("err-phone").textContent="";
-  if(!ad||ad.length<10){document.getElementById("err-address").textContent="বিস্তারিত ঠিকানা দিন";ok=false;}
-  else document.getElementById("err-address").textContent="";
-  if(!di){document.getElementById("err-district").textContent="জেলা নির্বাচন করুন";ok=false;}
-  else document.getElementById("err-district").textContent="";
-  return ok;
-}
-
-function submitOrder(){
-  if(!validate()) return;
-  const n=document.getElementById("cust-name").value.trim();
-  const ph=document.getElementById("cust-phone").value.trim();
-  const ad=document.getElementById("cust-address").value.trim();
-  const di=document.getElementById("cust-district").value;
-  const diText=document.getElementById("cust-district").options[document.getElementById("cust-district").selectedIndex].text;
-  const fee=DELIVERY[di];
-  const total=selProduct.price+fee;
-  const inv="SINTH-"+Date.now();
-
-  // Save order locally
-  const orders=JSON.parse(localStorage.getItem("sinthiya_orders")||"[]");
-  orders.unshift({inv,name:n,phone:ph,address:ad,district:diText,product:selProduct.name,price:selProduct.price,deliveryFee:fee,total,time:new Date().toISOString(),status:"pending"});
-  localStorage.setItem("sinthiya_orders",JSON.stringify(orders));
-
-  // WhatsApp message
-  const waNum=localStorage.getItem("sinthiya_wa_number")||WA_NUMBER;
-  const msg=`🛒 *নতুন অর্ডার — Sinthiya Organic Oil*\n\n📋 Invoice: ${inv}\n👤 নাম: ${n}\n📞 ফোন: ${ph}\n📍 ঠিকানা: ${ad}\n🗺️ জেলা: ${diText}\n📦 পণ্য: ${selProduct.name}\n💰 মূল্য: ৳${selProduct.price}\n🚚 ডেলিভারি: ৳${fee}\n💵 সর্বমোট: ৳${total} (ক্যাশ অন ডেলিভারি)`;
-  const waUrl=`https://wa.me/${waNum}?text=${encodeURIComponent(msg)}`;
-  document.getElementById("whatsapp-confirm-btn").href=waUrl;
-  closeModal();
-  document.getElementById("success-page").classList.add("active");
-  window.open(waUrl,'_blank');
-}
-
-function goBack(){
-  document.getElementById("success-page").classList.remove("active");
-}
-
-renderProducts();
-</script>
+<script src="products.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
-ENDOFFILE
+HTMLEOF
+echo "index.html done"
