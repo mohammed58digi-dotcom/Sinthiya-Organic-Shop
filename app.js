@@ -1,204 +1,192 @@
-// ══════════════════════════════════════════════════════════
-// CYNTHIA ORGANIC WELL — App Logic
-// ══════════════════════════════════════════════════════════
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Sinthiya Organic Oil</title>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green-deep: #1a3a2a; --green-mid: #2d6a4f; --cream: #f8f4ec;
+      --gold: #c8933a; --text: #1c1c1c; --white: #ffffff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Hind Siliguri', sans-serif;
+      background: var(--green-deep);
+      color: var(--text);
+      min-height: 100vh;
+    }
 
-const STEADFAST_API_KEY    = "gbx0dafkklzaiq7tqfy5e0su0whfay5g";
-const STEADFAST_SECRET_KEY = "w5odguix1mkna6bb1z1yqzkc";
-const STEADFAST_API_URL    = "https://portal.steadfast.com.bd/api/v1";
+    /* Login Screen */
+    #login-screen {
+      display: flex;
+      position: fixed;
+      inset: 0;
+      justify-content: center;
+      align-items: center;
+      background: var(--green-deep);
+      z-index: 1000;
+    }
+    .login-box {
+      background: var(--white);
+      padding: 40px 30px;
+      border-radius: 16px;
+      width: 90%;
+      max-width: 380px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    .login-box h1 {
+      color: var(--green-mid);
+      margin-bottom: 10px;
+    }
+    .login-box input {
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    .login-box button {
+      width: 100%;
+      padding: 14px;
+      background: var(--green-mid);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .login-box button:hover {
+      background: #1f5a44;
+    }
 
-let selectedProduct = null;
-let submittedPhones = JSON.parse(localStorage.getItem("sinthiya_phones") || "[]");
+    /* Dashboard */
+    #dashboard {
+      display: none;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    header {
+      background: var(--green-mid);
+      color: white;
+      padding: 15px 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .order-card {
+      background: white;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 10px;
+      border-right: 5px solid var(--green-mid);
+    }
+    .logout-btn {
+      background: #e74c3c;
+      padding: 8px 16px;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
 
-// ── Render Products ──────────────────────────────────────
-function renderProducts() {
-  const grid = document.getElementById("products-grid");
-  grid.innerHTML = "";
-  PRODUCTS.filter(p => p.active).forEach(product => {
-    grid.innerHTML += `
-      <div class="product-card">
-        <span class="product-badge">${product.badge}</span>
-        <div class="product-icon">${product.icon}</div>
-        <div class="product-name">${product.name}</div>
-        <div class="product-desc">${product.description}</div>
-        <div class="product-price">৳${product.price.toLocaleString('bn-BD')}</div>
-        <div class="product-delivery">🚚 ঢাকা: ৳${DELIVERY.dhaka} | বাইরে: ৳${DELIVERY.outside}</div>
-        <button class="order-btn" onclick="openModal('${product.id}')">অর্ডার করুন →</button>
-      </div>`;
-  });
-}
+  <!-- Login Screen -->
+  <div id="login-screen">
+    <div class="login-box">
+      <h1>🔑 অ্যাডমিন লগইন</h1>
+      <p style="margin-bottom:20px; color:#555;">Sinthiya Organic Oil</p>
+      
+      <form id="login-form">
+        <input type="text" id="username" placeholder="ইউজারনেম" required>
+        <input type="password" id="password" placeholder="পাসওয়ার্ড" required>
+        <button type="submit">লগইন করুন</button>
+      </form>
+    </div>
+  </div>
 
-// ── Modal ────────────────────────────────────────────────
-function openModal(productId) {
-  selectedProduct = PRODUCTS.find(p => p.id === productId);
-  const info = document.getElementById("modal-product-info");
-  info.innerHTML = `<p>${selectedProduct.icon} <strong>${selectedProduct.name}</strong></p>
-    <p style="margin-top:4px;font-size:.85rem;color:#2d6a4f;">${selectedProduct.description}</p>`;
-  ["err-name","err-phone","err-address","err-district"].forEach(id => document.getElementById(id).textContent = "");
-  ["cust-name","cust-phone","cust-address"].forEach(id => document.getElementById(id).value = "");
-  document.getElementById("cust-district").value = "";
-  document.getElementById("delivery-info").style.display = "none";
-  document.getElementById("total-box").style.display = "none";
-  document.getElementById("modal-overlay").classList.add("active");
-}
+  <!-- Admin Dashboard -->
+  <div id="dashboard">
+    <header>
+      <h2>🛠️ অ্যাডমিন প্যানেল - Sinthiya Organic Oil</h2>
+      <button class="logout-btn" onclick="logout()">লগআউট</button>
+    </header>
 
-function closeModal() {
-  document.getElementById("modal-overlay").classList.remove("active");
-  selectedProduct = null;
-}
+    <h3>সব অর্ডারসমূহ</h3>
+    <div id="orders-list"></div>
+  </div>
 
-document.getElementById("modal-overlay").addEventListener("click", function(e) {
-  if (e.target === this) closeModal();
-});
+  <script>
+    // ==================== ADMIN LOGIN LOGIC ====================
+    const ADMIN_USERNAME = "admin";
+    const ADMIN_PASSWORD = "sinthiya123";   // আপনি চাইলে এটা পরিবর্তন করুন
 
-// ── Delivery Calc ────────────────────────────────────────
-function updateDelivery() {
-  const district = document.getElementById("cust-district").value;
-  if (!district || !selectedProduct) return;
-  const deliveryFee = DELIVERY[district];
-  const total = selectedProduct.price + deliveryFee;
-  const districtText = district === "dhaka" ? "ঢাকার মধ্যে" : "ঢাকার বাইরে";
+    document.getElementById("login-form").addEventListener("submit", function(e) {
+      e.preventDefault();
 
-  document.getElementById("delivery-info").style.display = "block";
-  document.getElementById("delivery-info").innerHTML =
-    `📦 ${districtText} ডেলিভারি চার্জ: <strong>৳${deliveryFee}</strong>`;
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
 
-  document.getElementById("total-box").style.display = "block";
-  document.getElementById("total-box").innerHTML = `
-    <div class="row"><span>পণ্যের মূল্য</span><span>৳${selectedProduct.price}</span></div>
-    <div class="row"><span>ডেলিভারি চার্জ</span><span>৳${deliveryFee}</span></div>
-    <div class="total-final"><span>সর্বমোট</span><span>৳${total}</span></div>`;
-}
-
-// ── Validation ───────────────────────────────────────────
-function validate() {
-  let ok = true;
-  const name    = document.getElementById("cust-name").value.trim();
-  const phone   = document.getElementById("cust-phone").value.trim();
-  const address = document.getElementById("cust-address").value.trim();
-  const district= document.getElementById("cust-district").value;
-
-  if (!name) { document.getElementById("err-name").textContent = "নাম আবশ্যক"; ok = false; }
-  else document.getElementById("err-name").textContent = "";
-
-  const phoneReg = /^01[3-9]\d{8}$/;
-  if (!phoneReg.test(phone)) {
-    document.getElementById("err-phone").textContent = "সঠিক বাংলাদেশি মোবাইল নম্বর দিন";
-    ok = false;
-  } else document.getElementById("err-phone").textContent = "";
-
-  if (!address || address.length < 10) {
-    document.getElementById("err-address").textContent = "বিস্তারিত ঠিকানা দিন";
-    ok = false;
-  } else document.getElementById("err-address").textContent = "";
-
-  if (!district) { document.getElementById("err-district").textContent = "জেলা নির্বাচন করুন"; ok = false; }
-  else document.getElementById("err-district").textContent = "";
-
-  return ok;
-}
-
-// ── Duplicate Check ──────────────────────────────────────
-function isDuplicate(phone) {
-  return submittedPhones.includes(phone);
-}
-
-// ── Submit Order ─────────────────────────────────────────
-async function submitOrder() {
-  if (!validate()) return;
-
-  const name     = document.getElementById("cust-name").value.trim();
-  const phone    = document.getElementById("cust-phone").value.trim();
-  const address  = document.getElementById("cust-address").value.trim();
-  const district = document.getElementById("cust-district").value;
-
-  // Duplicate check
-  if (isDuplicate(phone)) {
-    document.getElementById("err-phone").textContent =
-      "⚠️ এই নম্বর থেকে আগেই অর্ডার হয়েছে। নতুন নম্বর ব্যবহার করুন।";
-    return;
-  }
-
-  const deliveryFee = DELIVERY[district];
-  const total = selectedProduct.price + deliveryFee;
-  const btn = document.getElementById("submit-btn");
-  btn.disabled = true;
-  btn.textContent = "⏳ প্রসেস হচ্ছে...";
-
-  try {
-    const payload = {
-      invoice:          "SINTH-" + Date.now(),
-      recipient_name:   name,
-      recipient_phone:  phone,
-      recipient_address: address,
-      cod_amount:       total,
-      note:             selectedProduct.name + " | ডেলিভারি: " + (district === "dhaka" ? "ঢাকা" : "ঢাকার বাইরে")
-    };
-
-    const res = await fetch(`${STEADFAST_API_URL}/create_order`, {
-      method: "POST",
-      headers: {
-        "Content-Type":  "application/json",
-        "Api-Key":       STEADFAST_API_KEY,
-        "Secret-Key":    STEADFAST_SECRET_KEY
-      },
-      body: JSON.stringify(payload)
+      if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+        localStorage.setItem("isAdminLoggedIn", "true");
+        document.getElementById("login-screen").style.display = "none";
+        document.getElementById("dashboard").style.display = "block";
+        loadOrders();
+      } else {
+        alert("❌ ভুল ইউজারনেম বা পাসওয়ার্ড!");
+      }
     });
 
-    const data = await res.json();
-
-    if (data.status === 200 || data.consignment) {
-      const consignment = data.consignment || {};
-      const trackingCode = consignment.tracking_code || consignment.consignment_id || ("TRK" + Date.now());
-
-      // Save to local orders
-      saveOrder({ name, phone, address, district, product: selectedProduct.name, price: selectedProduct.price, deliveryFee, total, trackingCode, time: new Date().toISOString(), status: "pending" });
-
-      // Mark phone as used
-      submittedPhones.push(phone);
-      localStorage.setItem("sinthiya_phones", JSON.stringify(submittedPhones));
-
-      closeModal();
-      showSuccess(trackingCode, name, phone, selectedProduct.name, total);
-    } else {
-      throw new Error(data.message || "API ত্রুটি");
+    // Check if already logged in
+    function checkLogin() {
+      if (localStorage.getItem("isAdminLoggedIn") === "true") {
+        document.getElementById("login-screen").style.display = "none";
+        document.getElementById("dashboard").style.display = "block";
+        loadOrders();
+      }
     }
-  } catch (err) {
-    btn.disabled = false;
-    btn.textContent = "✅ অর্ডার কনফার্ম করুন";
-    alert("❌ অর্ডার দিতে সমস্যা হয়েছে: " + err.message);
-  }
-}
 
-// ── Save Order Locally ───────────────────────────────────
-function saveOrder(order) {
-  const orders = JSON.parse(localStorage.getItem("sinthiya_orders") || "[]");
-  orders.unshift(order);
-  localStorage.setItem("sinthiya_orders", JSON.stringify(orders));
-}
+    // Load Orders from localStorage
+    function loadOrders() {
+      const orders = JSON.parse(localStorage.getItem("sinthiya_orders") || "[]");
+      const container = document.getElementById("orders-list");
 
-// ── Show Success ─────────────────────────────────────────
-function showSuccess(trackingCode, name, phone, productName, total) {
-  document.getElementById("tracking-code").textContent = trackingCode;
+      if (orders.length === 0) {
+        container.innerHTML = "<p style='color:white; text-align:center; padding:20px;'>কোনো অর্ডার এখনো আসেনি।</p>";
+        return;
+      }
 
-  const msg = encodeURIComponent(
-    `✅ *Cynthia Organic Well – অর্ডার কনফার্মেশন*\n\n` +
-    `নাম: ${name}\n` +
-    `মোবাইল: ${phone}\n` +
-    `পণ্য: ${productName}\n` +
-    `মোট: ৳${total} (ক্যাশ অন ডেলিভারি)\n` +
-    `ট্র্যাকিং কোড: ${trackingCode}\n\n` +
-    `আমাদের সাথে থাকার জন্য ধন্যবাদ! 🌿`
-  );
+      let html = "";
+      orders.forEach(order => {
+        html += `
+          <div class="order-card">
+            <strong>\( {order.name}</strong> | \){order.phone}<br>
+            <small>${order.product}</small><br>
+            <small>মোট: ৳\( {order.total} | \){new Date(order.time).toLocaleString('bn-BD')}</small><br>
+            <small>ট্র্যাকিং: ${order.trackingCode || 'N/A'}</small>
+          </div>`;
+      });
+      container.innerHTML = html;
+    }
 
-  document.getElementById("whatsapp-confirm-btn").href =
-    `https://wa.me/${BUSINESS_WHATSAPP}?text=${msg}`;
+    function logout() {
+      if (confirm("লগআউট করবেন?")) {
+        localStorage.removeItem("isAdminLoggedIn");
+        location.reload();
+      }
+    }
 
-  document.getElementById("success-page").classList.add("active");
-}
-
-function goBack() {
-  document.getElementById("success-page").classList.remove("active");
-}
-
-// ── Init ─────────────────────────────────────────────────
-renderProducts();
+    // Initialize
+    window.onload = checkLogin;
+  </script>
+</body>
+</html>
