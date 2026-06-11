@@ -1,293 +1,279 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>সিন্থিয়া অর্গানিক ওয়েল</title>
-<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --green-deep: #2d5016;
-    --green-mid: #4a7c2f;
-    --green-light: #7ab648;
-    --cream: #f8f4ec;
-    --cream-dark: #ede8db;
-    --gold: #c8962a;
-    --gold-light: #e8b84b;
-    --text-dark: #1a1a1a;
-    --text-mid: #444;
-    --text-light: #777;
-    --white: #ffffff;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Hind Siliguri', sans-serif; background: var(--cream); color: var(--text-dark); font-size: 16px; line-height: 1.6; }
-  nav { background: var(--green-deep); padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
-  .nav-logo { color: var(--gold-light); font-size: 1.2rem; font-weight: 700; }
-  .nav-logo span { color: var(--white); font-weight: 300; }
-  .nav-links { display: flex; gap: 20px; list-style: none; }
-  .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--gold-light); }
-  .hero { background: linear-gradient(135deg, var(--green-deep) 0%, var(--green-mid) 60%, var(--green-light) 100%); padding: 60px 20px 50px; text-align: center; position: relative; overflow: hidden; }
-  .hero::before { content: ''; position: absolute; top: -40px; right: -40px; width: 200px; height: 200px; background: rgba(200,150,42,0.15); border-radius: 50%; }
-  .hero-leaf { font-size: 3rem; margin-bottom: 12px; display: block; }
-  .hero h1 { color: var(--white); font-size: 2rem; font-weight: 700; line-height: 1.3; margin-bottom: 10px; }
-  .hero h1 span { color: var(--gold-light); }
-  .hero p { color: rgba(255,255,255,0.85); font-size: 1rem; max-width: 380px; margin: 0 auto 24px; }
-  .badge-row { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
-  .badge { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.82rem; }
-  .products-section { background: var(--white); border-radius: 16px; padding: 28px 20px; margin: 24px auto; max-width: 520px; }
-  .section-title { font-size: 1.4rem; font-weight: 700; color: var(--green-deep); margin-bottom: 6px; }
-  .section-sub { font-size: 0.88rem; color: var(--text-light); margin-bottom: 24px; }
-  .divider { width: 40px; height: 3px; background: var(--gold); border-radius: 2px; margin-bottom: 20px; }
-  .product-card { background: var(--cream); border: 2px solid transparent; border-radius: 12px; padding: 16px; margin-bottom: 14px; cursor: pointer; transition: all 0.25s; display: flex; align-items: center; gap: 14px; }
-  .product-card:hover { border-color: var(--green-light); transform: translateY(-2px); }
-  .product-card.selected { border-color: var(--green-mid); background: #edf5e4; box-shadow: 0 4px 16px rgba(74,124,47,0.15); }
-  .product-img-box { width: 80px; height: 80px; border-radius: 10px; overflow: hidden; flex-shrink: 0; background: var(--cream-dark); display: flex; align-items: center; justify-content: center; font-size: 2rem; position: relative; }
-  .product-img-box img { width: 100%; height: 100%; object-fit: cover; }
-  .product-info { flex: 1; }
-  .product-name { font-weight: 600; font-size: 0.95rem; color: var(--green-deep); margin-bottom: 3px; }
-  .product-desc { font-size: 0.8rem; color: var(--text-light); margin-bottom: 6px; }
-  .product-price { font-size: 1.1rem; font-weight: 700; color: var(--gold); }
-  .product-select-dot { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--green-light); flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
-  .product-card.selected .product-select-dot { background: var(--green-mid); border-color: var(--green-mid); }
-  .product-card.selected .product-select-dot::after { content: '✓'; color: white; font-size: 0.75rem; font-weight: 700; }
-  .order-section { background: var(--white); border-radius: 16px; padding: 28px 20px; margin: 0 auto 24px; max-width: 520px; }
-  .form-group { margin-bottom: 16px; }
-  .form-label { display: block; font-size: 0.88rem; font-weight: 600; color: var(--text-mid); margin-bottom: 6px; }
-  .form-input, .form-select, .form-textarea { width: 100%; padding: 12px 14px; border: 1.5px solid #ddd; border-radius: 10px; font-family: 'Hind Siliguri', sans-serif; font-size: 0.95rem; color: var(--text-dark); background: var(--cream); transition: border-color 0.2s; outline: none; }
-  .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--green-mid); background: white; }
-  .form-textarea { resize: vertical; min-height: 80px; }
-  .price-summary { background: linear-gradient(135deg, var(--green-deep), var(--green-mid)); border-radius: 12px; padding: 18px; margin-bottom: 18px; color: white; }
-  .price-row { display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 8px; opacity: 0.9; }
-  .price-total { display: flex; justify-content: space-between; font-size: 1.15rem; font-weight: 700; border-top: 1px solid rgba(255,255,255,0.3); padding-top: 10px; margin-top: 4px; }
-  .price-total span:last-child { color: var(--gold-light); }
-  .btn-order { width: 100%; padding: 16px; background: linear-gradient(135deg, var(--green-mid), var(--green-deep)); color: white; border: none; border-radius: 12px; font-family: 'Hind Siliguri', sans-serif; font-size: 1.05rem; font-weight: 700; cursor: pointer; transition: all 0.25s; box-shadow: 0 4px 16px rgba(45,80,22,0.3); display: flex; align-items: center; justify-content: center; gap: 8px; }
-  .btn-order:hover { transform: translateY(-2px); }
-  .btn-order:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-  .btn-whatsapp { width: 100%; padding: 14px; background: #25d366; color: white; border: none; border-radius: 12px; font-family: 'Hind Siliguri', sans-serif; font-size: 1rem; font-weight: 600; cursor: pointer; margin-top: 10px; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; transition: all 0.2s; }
-  .btn-whatsapp:hover { background: #20ba59; }
-  .success-box { background: #edf5e4; border: 2px solid var(--green-light); border-radius: 12px; padding: 20px; text-align: center; display: none; }
-  .success-box.show { display: block; }
-  .success-icon { font-size: 2.5rem; margin-bottom: 8px; }
-  .success-box h3 { color: var(--green-deep); font-size: 1.1rem; margin-bottom: 6px; }
-  .success-box p { color: var(--text-mid); font-size: 0.88rem; }
-  .reviews-section { background: var(--white); border-radius: 16px; padding: 28px 20px; margin: 0 auto 24px; max-width: 520px; }
-  .review-card { background: var(--cream); border-radius: 12px; padding: 16px; margin-bottom: 14px; }
-  .review-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
-  .review-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--green-mid); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1rem; flex-shrink: 0; overflow: hidden; }
-  .review-avatar img { width: 100%; height: 100%; object-fit: cover; }
-  .review-name { font-weight: 600; font-size: 0.9rem; color: var(--green-deep); }
-  .review-stars { color: var(--gold); font-size: 0.85rem; }
-  .review-text { font-size: 0.88rem; color: var(--text-mid); line-height: 1.5; }
-  .review-date { font-size: 0.78rem; color: var(--text-light); margin-top: 4px; }
-  footer { background: var(--green-deep); color: rgba(255,255,255,0.7); text-align: center; padding: 24px 20px; font-size: 0.82rem; }
-  footer strong { color: var(--gold-light); }
-  .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(80px); background: var(--green-deep); color: white; padding: 12px 24px; border-radius: 30px; font-size: 0.88rem; box-shadow: 0 4px 20px rgba(0,0,0,0.3); transition: transform 0.35s cubic-bezier(.34,1.56,.64,1); z-index: 999; white-space: nowrap; }
-  .toast.show { transform: translateX(-50%) translateY(0); }
-  @media (max-width: 400px) { .hero h1 { font-size: 1.6rem; } .product-img-box { width: 64px; height: 64px; } }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sinthiya organic Oil – অর্গানিক হেয়ার কেয়ার</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green-deep: #1a3a2a;
+      --green-mid:  #2d6a4f;
+      --green-soft: #52b788;
+      --cream:      #f8f4ec;
+      --gold:       #c8933a;
+      --gold-light: #f0c96e;
+      --text-dark:  #1c1c1c;
+      --text-mid:   #4a4a4a;
+      --white:      #ffffff;
+      --radius:     12px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Hind Siliguri', sans-serif; background: var(--cream); color: var(--text-dark); }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--green-deep);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.25);
+    }
+    .nav-logo { color: var(--gold-light); font-family: 'Playfair Display', serif; font-size: 1.3rem; letter-spacing: .5px; }
+    .nav-logo span { color: var(--green-soft); }
+    .nav-links a { color: #cde8d8; text-decoration: none; margin-left: 20px; font-size: .92rem; }
+    .nav-links a:hover { color: var(--gold-light); }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--green-deep) 0%, var(--green-mid) 100%);
+      color: var(--white); text-align: center;
+      padding: 72px 20px 56px;
+    }
+    .hero-eyebrow { font-size: .78rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold-light); margin-bottom: 14px; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 6vw, 3.4rem); line-height: 1.2; margin-bottom: 16px; }
+    .hero h1 span { color: var(--gold-light); }
+    .hero p { color: #cde8d8; max-width: 500px; margin: 0 auto 32px; font-size: 1.05rem; line-height: 1.7; }
+    .hero-btn {
+      display: inline-block; background: var(--gold); color: var(--white);
+      padding: 14px 36px; border-radius: 50px; font-weight: 600; font-size: 1rem;
+      text-decoration: none; transition: background .2s, transform .15s;
+    }
+    .hero-btn:hover { background: var(--gold-light); color: var(--green-deep); transform: translateY(-2px); }
+
+    /* ── SECTION COMMON ── */
+    section { padding: 56px 20px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 1.9rem; color: var(--green-deep); margin-bottom: 8px; }
+    .section-sub { color: var(--text-mid); font-size: .97rem; margin-bottom: 36px; }
+    .container { max-width: 1000px; margin: 0 auto; }
+
+    /* ── PRODUCTS ── */
+    #products { background: var(--white); }
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 24px; }
+    .product-card {
+      border: 2px solid #e8f0eb; border-radius: var(--radius);
+      padding: 28px 24px; background: var(--cream);
+      transition: box-shadow .2s, border-color .2s; position: relative; overflow: hidden;
+    }
+    .product-card:hover { box-shadow: 0 8px 28px rgba(45,106,79,.15); border-color: var(--green-soft); }
+    .product-badge {
+      position: absolute; top: 16px; right: 16px;
+      background: var(--gold); color: var(--white);
+      font-size: .72rem; font-weight: 700; padding: 4px 10px; border-radius: 20px; letter-spacing: .5px;
+    }
+    .product-icon { font-size: 2.4rem; margin-bottom: 12px; }
+    .product-name { font-weight: 700; font-size: 1.1rem; color: var(--green-deep); margin-bottom: 6px; }
+    .product-desc { font-size: .88rem; color: var(--text-mid); line-height: 1.6; margin-bottom: 16px; }
+    .product-price { font-size: 1.6rem; font-weight: 700; color: var(--green-mid); margin-bottom: 4px; }
+    .product-delivery { font-size: .8rem; color: var(--text-mid); margin-bottom: 18px; }
+    .order-btn {
+      display: block; width: 100%; padding: 12px; border-radius: 8px;
+      background: var(--green-mid); color: var(--white); font-weight: 600;
+      font-size: .97rem; border: none; cursor: pointer; text-align: center;
+      transition: background .2s;
+    }
+    .order-btn:hover { background: var(--green-deep); }
+
+    /* ── ORDER FORM MODAL ── */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; z-index: 999;
+      background: rgba(0,0,0,.55); justify-content: center; align-items: center; padding: 20px;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal {
+      background: var(--white); border-radius: 16px;
+      width: 100%; max-width: 480px; max-height: 90vh; overflow-y: auto;
+      padding: 32px 28px; position: relative;
+    }
+    .modal-close {
+      position: absolute; top: 14px; right: 18px;
+      background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-mid);
+    }
+    .modal h2 { font-family: 'Playfair Display', serif; color: var(--green-deep); margin-bottom: 6px; font-size: 1.5rem; }
+    .modal-product-info { background: #edf7f1; border-radius: 8px; padding: 12px 16px; margin-bottom: 22px; }
+    .modal-product-info p { font-size: .9rem; color: var(--green-deep); }
+    .modal-product-info strong { font-size: 1.1rem; }
+    label { display: block; font-size: .87rem; font-weight: 600; color: var(--text-mid); margin-bottom: 5px; margin-top: 14px; }
+    input, select, textarea {
+      width: 100%; padding: 11px 14px; border: 1.5px solid #d5e8dc;
+      border-radius: 8px; font-family: 'Hind Siliguri', sans-serif;
+      font-size: .95rem; outline: none; background: var(--cream); color: var(--text-dark);
+      transition: border-color .2s;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--green-soft); }
+    textarea { resize: vertical; min-height: 70px; }
+    .delivery-info { background: #fffbf0; border: 1px solid var(--gold-light); border-radius: 8px; padding: 10px 14px; margin-top: 12px; font-size: .85rem; color: #7a5c10; }
+    .total-box { background: var(--green-deep); color: var(--white); border-radius: 8px; padding: 14px 16px; margin-top: 18px; }
+    .total-box .row { display: flex; justify-content: space-between; font-size: .9rem; margin-bottom: 4px; }
+    .total-box .total-final { font-size: 1.2rem; font-weight: 700; border-top: 1px solid rgba(255,255,255,.3); margin-top: 8px; padding-top: 8px; display: flex; justify-content: space-between; }
+    .submit-btn {
+      width: 100%; margin-top: 20px; padding: 14px;
+      background: var(--gold); color: var(--white); border: none;
+      border-radius: 10px; font-size: 1.05rem; font-weight: 700;
+      cursor: pointer; transition: background .2s;
+    }
+    .submit-btn:hover { background: #b07d20; }
+    .submit-btn:disabled { background: #aaa; cursor: not-allowed; }
+    .error-text { color: #c0392b; font-size: .82rem; margin-top: 4px; }
+
+    /* ── SUCCESS PAGE ── */
+    #success-page {
+      display: none; position: fixed; inset: 0; z-index: 9999;
+      background: var(--cream); flex-direction: column;
+      justify-content: center; align-items: center; padding: 30px; text-align: center;
+    }
+    #success-page.active { display: flex; }
+    .success-icon { font-size: 4rem; margin-bottom: 16px; }
+    .success-title { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--green-deep); margin-bottom: 12px; }
+    .success-msg { color: var(--text-mid); max-width: 420px; line-height: 1.7; font-size: 1rem; margin-bottom: 24px; }
+    .tracking-box { background: var(--white); border: 2px solid var(--green-soft); border-radius: 12px; padding: 20px 28px; margin-bottom: 24px; }
+    .tracking-box p { font-size: .88rem; color: var(--text-mid); margin-bottom: 6px; }
+    .tracking-code { font-size: 1.5rem; font-weight: 700; color: var(--green-mid); letter-spacing: 2px; }
+    .whatsapp-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #25d366; color: var(--white);
+      padding: 14px 28px; border-radius: 50px; font-weight: 700;
+      text-decoration: none; font-size: 1rem; transition: background .2s;
+    }
+    .whatsapp-btn:hover { background: #1da851; }
+    .back-btn { display: inline-block; margin-top: 14px; color: var(--green-mid); text-decoration: underline; cursor: pointer; font-size: .92rem; }
+
+    /* ── WHY US ── */
+    #why { background: var(--green-deep); color: var(--white); }
+    #why .section-title { color: var(--gold-light); }
+    #why .section-sub { color: #9ecfb4; }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+    .why-card { background: rgba(255,255,255,.08); border-radius: var(--radius); padding: 22px 20px; text-align: center; }
+    .why-icon { font-size: 2rem; margin-bottom: 10px; }
+    .why-card h4 { font-size: .97rem; font-weight: 600; margin-bottom: 6px; color: var(--gold-light); }
+    .why-card p { font-size: .85rem; color: #9ecfb4; line-height: 1.6; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--green-deep); color: #9ecfb4; text-align: center; padding: 28px 20px; font-size: .85rem; border-top: 1px solid rgba(255,255,255,.1); }
+    footer strong { color: var(--gold-light); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 480px) {
+      .nav-links { display: none; }
+      .modal { padding: 24px 18px; }
+    }
+  </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
-  <div class="nav-logo">🌿 সিন্থিয়া <span>অর্গানিক ওয়েল</span></div>
-  <ul class="nav-links">
-    <li><a href="#products">প্রোডাক্ট</a></li>
-    <li><a href="#order">অর্ডার</a></li>
-    <li><a href="#reviews">রিভিউ</a></li>
-  </ul>
+  <div class="nav-logo">Cynthia <span>Organic</span> Well</div>
+  <div class="nav-links">
+    <a href="#products">প্রোডাক্ট</a>
+    <a href="#why">কেন আমরা?</a>
+  </div>
 </nav>
 
+<!-- HERO -->
 <div class="hero">
-  <span class="hero-leaf">🌿</span>
-  <h1>প্রকৃতির যত্নে<br><span>সুন্দর চুল</span></h1>
-  <p>১০০% অর্গানিক উপাদানে তৈরি, কেমিক্যাল মুক্ত হেয়ার অয়েল — বাংলাদেশে তৈরি, বাংলাদেশের জন্য।</p>
-  <div class="badge-row">
-    <span class="badge">🌱 কেমিক্যাল ফ্রি</span>
-    <span class="badge">✅ ১০০% অর্গানিক</span>
-    <span class="badge">🚚 সারাদেশে ডেলিভারি</span>
-  </div>
+  <div class="hero-eyebrow">১০০% প্রাকৃতিক • অর্গানিক</div>
+  <h1>চুলের যত্নে <span>বিশ্বাসযোগ্য</span><br/>অর্গানিক সমাধান</h1>
+  <p>প্রকৃতির শক্তিতে চুলকে করুন আরও স্বাস্থ্যকর, মজবুত ও উজ্জ্বল।</p>
+  <a href="#products" class="hero-btn">এখনই অর্ডার করুন →</a>
 </div>
 
-<div style="padding:0 20px;" id="products">
-  <div class="products-section">
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="container">
     <div class="section-title">আমাদের অফার</div>
-    <div class="divider"></div>
-    <p class="section-sub">আপনার পছন্দের কম্বো বেছে নিন</p>
-    <div class="product-card" onclick="selectProduct(0)" id="card-0">
-      <div class="product-img-box" id="imgbox-0"><span id="emoji-0">🫙</span><img id="img-0" src="" style="display:none;position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;"></div>
-      <div class="product-info">
-        <div class="product-name">অফার ১ — স্টুডেন্ট হেয়ার কম্বো</div>
-        <div class="product-desc">শিক্ষার্থীদের জন্য বিশেষ কম্বো</div>
-        <div class="product-price">৳ ৫০০</div>
-      </div>
-      <div class="product-select-dot"></div>
-    </div>
-    <div class="product-card" onclick="selectProduct(1)" id="card-1">
-      <div class="product-img-box" id="imgbox-1"><span id="emoji-1">🫙</span><img id="img-1" src="" style="display:none;position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;"></div>
-      <div class="product-info">
-        <div class="product-name">অফার ২ — মিডিয়াম হেয়ার কম্বো</div>
-        <div class="product-desc">মধ্যম ব্যবহারের জন্য পারফেক্ট</div>
-        <div class="product-price">৳ ৭৫০</div>
-      </div>
-      <div class="product-select-dot"></div>
-    </div>
-    <div class="product-card" onclick="selectProduct(2)" id="card-2">
-      <div class="product-img-box" id="imgbox-2"><span id="emoji-2">🫙</span><img id="img-2" src="" style="display:none;position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;"></div>
-      <div class="product-info">
-        <div class="product-name">অফার ৩ — রেগুলার হেয়ার কম্বো</div>
-        <div class="product-desc">নিয়মিত ব্যবহারের জন্য ফুল প্যাক</div>
-        <div class="product-price">৳ ১০০০</div>
-      </div>
-      <div class="product-select-dot"></div>
+    <p class="section-sub">সাশ্রয়ী মূল্যে সেরা মানের অর্গানিক হেয়ার কেয়ার কম্বো</p>
+    <div class="products-grid" id="products-grid">
+      <!-- JS দিয়ে লোড হবে -->
     </div>
   </div>
-</div>
+</section>
 
-<div style="padding:0 20px;" id="order">
-  <div class="order-section">
-    <div class="section-title">অর্ডার করুন</div>
-    <div class="divider"></div>
-    <div class="form-group"><label class="form-label">আপনার নাম *</label><input class="form-input" id="f-name" type="text" placeholder="পূর্ণ নাম লিখুন"></div>
-    <div class="form-group"><label class="form-label">ফোন নম্বর *</label><input class="form-input" id="f-phone" type="tel" placeholder="01XXXXXXXXX"></div>
-    <div class="form-group">
-      <label class="form-label">আপনার জেলা *</label>
-      <select class="form-select" id="f-location" onchange="updatePrice()">
-        <option value="">— জেলা বেছে নিন —</option>
-        <optgroup label="ঢাকার ভেতরে"><option value="dhaka">ঢাকা</option></optgroup>
-        <optgroup label="ঢাকার বাইরে">
-          <option value="outside">চট্টগ্রাম</option><option value="outside">সিলেট</option>
-          <option value="outside">রাজশাহী</option><option value="outside">খুলনা</option>
-          <option value="outside">বরিশাল</option><option value="outside">রংপুর</option>
-          <option value="outside">ময়মনসিংহ</option><option value="outside">কুমিল্লা</option>
-          <option value="outside">নারায়ণগঞ্জ</option><option value="outside">গাজীপুর</option>
-          <option value="outside">অন্যান্য জেলা</option>
-        </optgroup>
-      </select>
-    </div>
-    <div class="form-group"><label class="form-label">পূর্ণ ঠিকানা *</label><textarea class="form-textarea" id="f-address" placeholder="বাড়ি নং, রোড, এলাকা, থানা..."></textarea></div>
-    <div class="price-summary" id="price-summary" style="display:none;">
-      <div class="price-row"><span>প্রোডাক্ট</span><span id="ps-product">—</span></div>
-      <div class="price-row"><span>মূল্য</span><span id="ps-price">—</span></div>
-      <div class="price-row"><span>ডেলিভারি চার্জ</span><span id="ps-delivery">—</span></div>
-      <div class="price-total"><span>মোট পরিশোধযোগ্য</span><span id="ps-total">—</span></div>
-    </div>
-    <div id="success-box" class="success-box"><div class="success-icon">✅</div><h3>অর্ডার সফলভাবে পাঠানো হয়েছে!</h3><p>আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব ইনশাআল্লাহ।</p></div>
-    <button class="btn-order" id="order-btn" onclick="placeOrder()">🛒 এখনই অর্ডার করুন</button>
-    <a class="btn-whatsapp" id="wa-btn" href="#" target="_blank" style="display:none;">💬 WhatsApp এ সরাসরি মেসেজ করুন</a>
-  </div>
-</div>
-
-<div style="padding:0 20px;" id="reviews">
-  <div class="reviews-section">
-    <div class="section-title">কাস্টমার রিভিউ</div>
-    <div class="divider"></div>
-    <div id="reviews-container">
-      <div class="review-card">
-        <div class="review-header"><div class="review-avatar">ত</div><div><div class="review-name">তাসনিম আক্তার</div><div class="review-stars">★★★★★</div></div></div>
-        <div class="review-text">অসাধারণ প্রোডাক্ট! মাত্র ২ সপ্তাহেই চুল পড়া অনেক কমে গেছে। 🌿</div>
-        <div class="review-date">জুন ২০২৬</div>
-      </div>
-      <div class="review-card">
-        <div class="review-header"><div class="review-avatar">র</div><div><div class="review-name">রাহেলা বেগম</div><div class="review-stars">★★★★★</div></div></div>
-        <div class="review-text">দারুণ! চুল অনেক মসৃণ হয়েছে। ডেলিভারিও সময়মতো পেয়েছি।</div>
-        <div class="review-date">মে ২০২৬</div>
-      </div>
+<!-- WHY US -->
+<section id="why">
+  <div class="container">
+    <div class="section-title">কেন Sinthiya Organic Oil?</div>
+    <p class="section-sub">আমাদের বিশেষত্ব যা আমাদের আলাদা করে</p>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-icon">🌿</div><h4>১০০% অর্গানিক</h4><p>কোনো ক্ষতিকর কেমিক্যাল নেই, সম্পূর্ণ প্রাকৃতিক উপাদান</p></div>
+      <div class="why-card"><div class="why-icon">🚚</div><h4>দ্রুত ডেলিভারি</h4><p>সারাদেশে SteadFast কুরিয়ারের মাধ্যমে নির্ভরযোগ্য ডেলিভারি</p></div>
+      <div class="why-card"><div class="why-icon">💬</div><h4>WhatsApp সাপোর্ট</h4><p>অর্ডার করার পরেই WhatsApp-এ কনফার্মেশন পাবেন</p></div>
+      <div class="why-card"><div class="why-icon">✅</div><h4>ক্যাশ অন ডেলিভারি</h4><p>পণ্য হাতে পেয়ে টাকা দিন, ঝামেলাহীন কেনাকাটা</p></div>
     </div>
   </div>
-</div>
+</section>
 
+<!-- FOOTER -->
 <footer>
-  <strong>🌿 সিন্থিয়া অর্গানিক ওয়েল</strong><br>
-  <span>১০০% প্রাকৃতিক • কেমিক্যাল মুক্ত • বাংলাদেশে তৈরি</span>
+  <strong>Sintgiya Organic Oil</strong></strong> &nbsp;|&nbsp; অর্গানিক হেয়ার কেয়ার<br/>
+  <span style="font-size:.8rem;opacity:.7;">© 2025 সর্বস্বত্ব সংরক্ষিত</span>
 </footer>
 
-<div class="toast" id="toast"></div>
+<!-- ORDER MODAL -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <h2>অর্ডার করুন</h2>
+    <div class="modal-product-info" id="modal-product-info"></div>
 
-<script>
-  const products = [
-    { name: "অফার ১ — স্টুডেন্ট হেয়ার কম্বো", price: 500 },
-    { name: "অফার ২ — মিডিয়াম হেয়ার কম্বো", price: 750 },
-    { name: "অফার ৩ — রেগুলার হেয়ার কম্বো", price: 1000 }
-  ];
-  let selectedProduct = -1;
+    <label>আপনার নাম *</label>
+    <input type="text" id="cust-name" placeholder="পূর্ণ নাম লিখুন" />
+    <div class="error-text" id="err-name"></div>
 
-  function selectProduct(idx) {
-    selectedProduct = idx;
-    document.querySelectorAll('.product-card').forEach((c, i) => c.classList.toggle('selected', i === idx));
-    updatePrice();
-    showToast("✅ " + products[idx].name + " বেছে নেওয়া হয়েছে");
-  }
+    <label>মোবাইল নম্বর * (WhatsApp)</label>
+    <input type="tel" id="cust-phone" placeholder="01XXXXXXXXX" maxlength="11" />
+    <div class="error-text" id="err-phone"></div>
 
-  function updatePrice() {
-    const loc = document.getElementById('f-location').value;
-    if (selectedProduct < 0 || !loc) { document.getElementById('price-summary').style.display = 'none'; return; }
-    const p = products[selectedProduct];
-    const delivery = loc === 'dhaka' ? 80 : 130;
-    const total = p.price + delivery;
-    document.getElementById('ps-product').textContent = p.name;
-    document.getElementById('ps-price').textContent = '৳ ' + p.price;
-    document.getElementById('ps-delivery').textContent = '৳ ' + delivery + ' (' + (loc === 'dhaka' ? 'ঢাকার ভেতরে' : 'ঢাকার বাইরে') + ')';
-    document.getElementById('ps-total').textContent = '৳ ' + total;
-    document.getElementById('price-summary').style.display = 'block';
-  }
+    <label>ঠিকানা *</label>
+    <textarea id="cust-address" placeholder="বিস্তারিত ঠিকানা লিখুন (বাড়ি/রোড/এলাকা)"></textarea>
+    <div class="error-text" id="err-address"></div>
 
-  function placeOrder() {
-    const name = document.getElementById('f-name').value.trim();
-    const phone = document.getElementById('f-phone').value.trim();
-    const loc = document.getElementById('f-location').value;
-    const locText = document.getElementById('f-location').options[document.getElementById('f-location').selectedIndex].text;
-    const address = document.getElementById('f-address').value.trim();
-    if (!name) { showToast("⚠️ নাম দিন"); return; }
-    if (!phone) { showToast("⚠️ ফোন নম্বর দিন"); return; }
-    if (selectedProduct < 0) { showToast("⚠️ একটি প্রোডাক্ট বেছে নিন"); return; }
-    if (!loc) { showToast("⚠️ লোকেশন বেছে নিন"); return; }
-    if (!address) { showToast("⚠️ ঠিকানা দিন"); return; }
-    const p = products[selectedProduct];
-    const delivery = loc === 'dhaka' ? 80 : 130;
-    const total = p.price + delivery;
-    const msg = `🛒 *নতুন অর্ডার!*\n\n👤 নাম: ${name}\n📞 ফোন: ${phone}\n📦 প্রোডাক্ট: ${p.name}\n💰 মূল্য: ৳${p.price}\n🚚 ডেলিভারি: ৳${delivery} (${locText})\n💵 মোট: ৳${total}\n📍 ঠিকানা: ${address}`;
-    const waNum = localStorage.getItem('waNumber') || '880XXXXXXXXXX';
-    const waUrl = `https://wa.me/${waNum}?text=${encodeURIComponent(msg)}`;
-    document.getElementById('success-box').classList.add('show');
-    document.getElementById('order-btn').disabled = true;
-    document.getElementById('wa-btn').href = waUrl;
-    document.getElementById('wa-btn').style.display = 'flex';
-    showToast("🎉 WhatsApp এ পাঠান!");
-    window.open(waUrl, '_blank');
-  }
+    <label>জেলা *</label>
+    <select id="cust-district" onchange="updateDelivery()">
+      <option value="">-- জেলা নির্বাচন করুন --</option>
+      <option value="dhaka">ঢাকা</option>
+      <option value="outside">ঢাকার বাইরে</option>
+    </select>
+    <div class="error-text" id="err-district"></div>
 
-  function showToast(msg) {
-    const t = document.getElementById('toast');
-    t.textContent = msg;
-    t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 2800);
-  }
+    <div class="delivery-info" id="delivery-info" style="display:none"></div>
+    <div class="total-box" id="total-box" style="display:none"></div>
 
-  window.onload = () => {
-    for (let i = 0; i < 3; i++) {
-      const saved = localStorage.getItem('productImg-' + i);
-      if (saved) {
-        document.getElementById('img-' + i).src = saved;
-        document.getElementById('img-' + i).style.display = 'block';
-        document.getElementById('emoji-' + i).style.display = 'none';
-      }
-    }
-    // Load reviews from admin
-    const savedReviews = localStorage.getItem('adminReviews');
-    if (savedReviews) {
-      const reviews = JSON.parse(savedReviews);
-      const container = document.getElementById('reviews-container');
-      container.innerHTML = '';
-      reviews.forEach(r => {
-        const card = document.createElement('div');
-        card.className = 'review-card';
-        const avatarHtml = r.img ? `<img src="${r.img}" alt="${r.name}">` : r.name.charAt(0);
-        card.innerHTML = `<div class="review-header"><div class="review-avatar">${avatarHtml}</div><div><div class="review-name">${r.name}</div><div class="review-stars">${r.stars}</div></div></div><div class="review-text">${r.text}</div><div class="review-date">${r.date}</div>`;
-        container.appendChild(card);
-      });
-    }
-  };
-</script>
+    <button class="submit-btn" id="submit-btn" onclick="submitOrder()">✅ অর্ডার কনফার্ম করুন</button>
+    <p style="font-size:.78rem;color:#999;text-align:center;margin-top:10px;">অর্ডার করলে আপনি আমাদের শর্তাবলীতে সম্মত হচ্ছেন।</p>
+  </div>
+</div>
+
+<!-- SUCCESS PAGE -->
+<div id="success-page">
+  <div class="success-icon">🎉</div>
+  <div class="success-title">অর্ডার সফল হয়েছে!</div>
+  <p class="success-msg">আপনার অর্ডারটি সফলভাবে প্লেস হয়েছে। SteadFast কুরিয়ারে এন্ট্রি হয়ে গেছে।</p>
+  <div class="tracking-box">
+    <p>আপনার ট্র্যাকিং কোড</p>
+    <div class="tracking-code" id="tracking-code">—</div>
+    <p style="margin-top:8px;font-size:.8rem;">এই কোড দিয়ে <a href="https://steadfast.com.bd" target="_blank">steadfast.com.bd</a>-এ ট্র্যাক করুন</p>
+  </div>
+  <a id="whatsapp-confirm-btn" href="#" target="_blank" class="whatsapp-btn">
+    <span>📲</span> WhatsApp-এ কনফার্ম করুন
+  </a>
+  <div class="back-btn" onclick="goBack()">← আরও অর্ডার করুন</div>
+</div>
+
+<!-- DATA & LOGIC -->
+<script src="products.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
