@@ -19,473 +19,76 @@
     --text-light: #777;
     --white: #ffffff;
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    font-family: 'Hind Siliguri', sans-serif;
-    background: var(--cream);
-    color: var(--text-dark);
-    font-size: 16px;
-    line-height: 1.6;
-  }
-
-  /* NAV */
-  nav {
-    background: var(--green-deep);
-    padding: 14px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
-  }
-  .nav-logo {
-    color: var(--gold-light);
-    font-size: 1.2rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-  }
+  body { font-family: 'Hind Siliguri', sans-serif; background: var(--cream); color: var(--text-dark); font-size: 16px; line-height: 1.6; }
+  nav { background: var(--green-deep); padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+  .nav-logo { color: var(--gold-light); font-size: 1.2rem; font-weight: 700; }
   .nav-logo span { color: var(--white); font-weight: 300; }
-  .nav-links {
-    display: flex;
-    gap: 20px;
-    list-style: none;
-  }
-  .nav-links a {
-    color: rgba(255,255,255,0.85);
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: color 0.2s;
-  }
+  .nav-links { display: flex; gap: 20px; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
   .nav-links a:hover { color: var(--gold-light); }
-
-  /* HERO */
-  .hero {
-    background: linear-gradient(135deg, var(--green-deep) 0%, var(--green-mid) 60%, var(--green-light) 100%);
-    padding: 60px 20px 50px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -40px; right: -40px;
-    width: 200px; height: 200px;
-    background: rgba(200,150,42,0.15);
-    border-radius: 50%;
-  }
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: -60px; left: -30px;
-    width: 250px; height: 250px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 50%;
-  }
-  .hero-leaf {
-    font-size: 3rem;
-    margin-bottom: 12px;
-    display: block;
-  }
-  .hero h1 {
-    color: var(--white);
-    font-size: 2rem;
-    font-weight: 700;
-    line-height: 1.3;
-    margin-bottom: 10px;
-  }
+  .hero { background: linear-gradient(135deg, var(--green-deep) 0%, var(--green-mid) 60%, var(--green-light) 100%); padding: 60px 20px 50px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -40px; right: -40px; width: 200px; height: 200px; background: rgba(200,150,42,0.15); border-radius: 50%; }
+  .hero-leaf { font-size: 3rem; margin-bottom: 12px; display: block; }
+  .hero h1 { color: var(--white); font-size: 2rem; font-weight: 700; line-height: 1.3; margin-bottom: 10px; }
   .hero h1 span { color: var(--gold-light); }
-  .hero p {
-    color: rgba(255,255,255,0.85);
-    font-size: 1rem;
-    max-width: 380px;
-    margin: 0 auto 24px;
-  }
-  .badge-row {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-  .badge {
-    background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.3);
-    color: white;
-    padding: 5px 14px;
-    border-radius: 20px;
-    font-size: 0.82rem;
-  }
-
-  /* SECTIONS */
-  section { padding: 40px 20px; max-width: 520px; margin: 0 auto; }
-
-  .section-title {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--green-deep);
-    margin-bottom: 6px;
-  }
-  .section-sub {
-    font-size: 0.88rem;
-    color: var(--text-light);
-    margin-bottom: 24px;
-  }
-  .divider {
-    width: 40px;
-    height: 3px;
-    background: var(--gold);
-    border-radius: 2px;
-    margin-bottom: 20px;
-  }
-
-  /* PRODUCTS */
-  .products-section { background: var(--white); border-radius: 16px; padding: 28px 20px; margin: 0 auto 24px; max-width: 520px; }
-
-  .product-card {
-    background: var(--cream);
-    border: 2px solid transparent;
-    border-radius: 12px;
-    padding: 16px;
-    margin-bottom: 14px;
-    cursor: pointer;
-    transition: all 0.25s;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
+  .hero p { color: rgba(255,255,255,0.85); font-size: 1rem; max-width: 380px; margin: 0 auto 24px; }
+  .badge-row { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+  .badge { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: white; padding: 5px 14px; border-radius: 20px; font-size: 0.82rem; }
+  .products-section { background: var(--white); border-radius: 16px; padding: 28px 20px; margin: 24px auto; max-width: 520px; }
+  .section-title { font-size: 1.4rem; font-weight: 700; color: var(--green-deep); margin-bottom: 6px; }
+  .section-sub { font-size: 0.88rem; color: var(--text-light); margin-bottom: 24px; }
+  .divider { width: 40px; height: 3px; background: var(--gold); border-radius: 2px; margin-bottom: 20px; }
+  .product-card { background: var(--cream); border: 2px solid transparent; border-radius: 12px; padding: 16px; margin-bottom: 14px; cursor: pointer; transition: all 0.25s; display: flex; align-items: center; gap: 14px; }
   .product-card:hover { border-color: var(--green-light); transform: translateY(-2px); }
-  .product-card.selected {
-    border-color: var(--green-mid);
-    background: #edf5e4;
-    box-shadow: 0 4px 16px rgba(74,124,47,0.15);
-  }
-  .product-img-box {
-    width: 80px;
-    height: 80px;
-    border-radius: 10px;
-    overflow: hidden;
-    flex-shrink: 0;
-    background: var(--cream-dark);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    position: relative;
-  }
+  .product-card.selected { border-color: var(--green-mid); background: #edf5e4; box-shadow: 0 4px 16px rgba(74,124,47,0.15); }
+  .product-img-box { width: 80px; height: 80px; border-radius: 10px; overflow: hidden; flex-shrink: 0; background: var(--cream-dark); display: flex; align-items: center; justify-content: center; font-size: 2rem; position: relative; }
   .product-img-box img { width: 100%; height: 100%; object-fit: cover; }
   .product-info { flex: 1; }
   .product-name { font-weight: 600; font-size: 0.95rem; color: var(--green-deep); margin-bottom: 3px; }
   .product-desc { font-size: 0.8rem; color: var(--text-light); margin-bottom: 6px; }
-  .product-price {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--gold);
-  }
-  .product-select-dot {
-    width: 22px; height: 22px;
-    border-radius: 50%;
-    border: 2px solid var(--green-light);
-    flex-shrink: 0;
-    display: flex; align-items: center; justify-content: center;
-    transition: all 0.2s;
-  }
-  .product-card.selected .product-select-dot {
-    background: var(--green-mid);
-    border-color: var(--green-mid);
-  }
-  .product-card.selected .product-select-dot::after {
-    content: '✓';
-    color: white;
-    font-size: 0.75rem;
-    font-weight: 700;
-  }
-
-  /* ADMIN IMAGE UPLOAD */
-  .admin-upload-btn {
-    position: absolute;
-    bottom: 4px; right: 4px;
-    background: var(--green-mid);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 22px; height: 22px;
-    font-size: 0.75rem;
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-  }
-
-  /* ORDER FORM */
+  .product-price { font-size: 1.1rem; font-weight: 700; color: var(--gold); }
+  .product-select-dot { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--green-light); flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+  .product-card.selected .product-select-dot { background: var(--green-mid); border-color: var(--green-mid); }
+  .product-card.selected .product-select-dot::after { content: '✓'; color: white; font-size: 0.75rem; font-weight: 700; }
   .order-section { background: var(--white); border-radius: 16px; padding: 28px 20px; margin: 0 auto 24px; max-width: 520px; }
-
   .form-group { margin-bottom: 16px; }
-  .form-label {
-    display: block;
-    font-size: 0.88rem;
-    font-weight: 600;
-    color: var(--text-mid);
-    margin-bottom: 6px;
-  }
-  .form-input, .form-select, .form-textarea {
-    width: 100%;
-    padding: 12px 14px;
-    border: 1.5px solid #ddd;
-    border-radius: 10px;
-    font-family: 'Hind Siliguri', sans-serif;
-    font-size: 0.95rem;
-    color: var(--text-dark);
-    background: var(--cream);
-    transition: border-color 0.2s;
-    outline: none;
-  }
-  .form-input:focus, .form-select:focus, .form-textarea:focus {
-    border-color: var(--green-mid);
-    background: white;
-  }
+  .form-label { display: block; font-size: 0.88rem; font-weight: 600; color: var(--text-mid); margin-bottom: 6px; }
+  .form-input, .form-select, .form-textarea { width: 100%; padding: 12px 14px; border: 1.5px solid #ddd; border-radius: 10px; font-family: 'Hind Siliguri', sans-serif; font-size: 0.95rem; color: var(--text-dark); background: var(--cream); transition: border-color 0.2s; outline: none; }
+  .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--green-mid); background: white; }
   .form-textarea { resize: vertical; min-height: 80px; }
-
-  /* LOCATION & PRICE SUMMARY */
-  .price-summary {
-    background: linear-gradient(135deg, var(--green-deep), var(--green-mid));
-    border-radius: 12px;
-    padding: 18px;
-    margin-bottom: 18px;
-    color: white;
-  }
-  .price-row {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9rem;
-    margin-bottom: 8px;
-    opacity: 0.9;
-  }
-  .price-total {
-    display: flex;
-    justify-content: space-between;
-    font-size: 1.15rem;
-    font-weight: 700;
-    border-top: 1px solid rgba(255,255,255,0.3);
-    padding-top: 10px;
-    margin-top: 4px;
-  }
+  .price-summary { background: linear-gradient(135deg, var(--green-deep), var(--green-mid)); border-radius: 12px; padding: 18px; margin-bottom: 18px; color: white; }
+  .price-row { display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 8px; opacity: 0.9; }
+  .price-total { display: flex; justify-content: space-between; font-size: 1.15rem; font-weight: 700; border-top: 1px solid rgba(255,255,255,0.3); padding-top: 10px; margin-top: 4px; }
   .price-total span:last-child { color: var(--gold-light); }
-
-  /* SUBMIT BUTTON */
-  .btn-order {
-    width: 100%;
-    padding: 16px;
-    background: linear-gradient(135deg, var(--green-mid), var(--green-deep));
-    color: white;
-    border: none;
-    border-radius: 12px;
-    font-family: 'Hind Siliguri', sans-serif;
-    font-size: 1.05rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.25s;
-    box-shadow: 0 4px 16px rgba(45,80,22,0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-  }
-  .btn-order:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(45,80,22,0.4); }
-  .btn-order:active { transform: translateY(0); }
+  .btn-order { width: 100%; padding: 16px; background: linear-gradient(135deg, var(--green-mid), var(--green-deep)); color: white; border: none; border-radius: 12px; font-family: 'Hind Siliguri', sans-serif; font-size: 1.05rem; font-weight: 700; cursor: pointer; transition: all 0.25s; box-shadow: 0 4px 16px rgba(45,80,22,0.3); display: flex; align-items: center; justify-content: center; gap: 8px; }
+  .btn-order:hover { transform: translateY(-2px); }
   .btn-order:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-
-  /* WHATSAPP BUTTON */
-  .btn-whatsapp {
-    width: 100%;
-    padding: 14px;
-    background: #25d366;
-    color: white;
-    border: none;
-    border-radius: 12px;
-    font-family: 'Hind Siliguri', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: all 0.2s;
-  }
+  .btn-whatsapp { width: 100%; padding: 14px; background: #25d366; color: white; border: none; border-radius: 12px; font-family: 'Hind Siliguri', sans-serif; font-size: 1rem; font-weight: 600; cursor: pointer; margin-top: 10px; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; transition: all 0.2s; }
   .btn-whatsapp:hover { background: #20ba59; }
-
-  /* SUCCESS */
-  .success-box {
-    background: #edf5e4;
-    border: 2px solid var(--green-light);
-    border-radius: 12px;
-    padding: 20px;
-    text-align: center;
-    display: none;
-  }
+  .success-box { background: #edf5e4; border: 2px solid var(--green-light); border-radius: 12px; padding: 20px; text-align: center; display: none; }
   .success-box.show { display: block; }
   .success-icon { font-size: 2.5rem; margin-bottom: 8px; }
   .success-box h3 { color: var(--green-deep); font-size: 1.1rem; margin-bottom: 6px; }
   .success-box p { color: var(--text-mid); font-size: 0.88rem; }
-
-  /* REVIEWS */
   .reviews-section { background: var(--white); border-radius: 16px; padding: 28px 20px; margin: 0 auto 24px; max-width: 520px; }
-
-  .review-card {
-    background: var(--cream);
-    border-radius: 12px;
-    padding: 16px;
-    margin-bottom: 14px;
-  }
-  .review-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 8px;
-  }
-  .review-avatar {
-    width: 40px; height: 40px;
-    border-radius: 50%;
-    background: var(--green-mid);
-    display: flex; align-items: center; justify-content: center;
-    color: white;
-    font-weight: 700;
-    font-size: 1rem;
-    flex-shrink: 0;
-    overflow: hidden;
-  }
+  .review-card { background: var(--cream); border-radius: 12px; padding: 16px; margin-bottom: 14px; }
+  .review-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .review-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--green-mid); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1rem; flex-shrink: 0; overflow: hidden; }
   .review-avatar img { width: 100%; height: 100%; object-fit: cover; }
   .review-name { font-weight: 600; font-size: 0.9rem; color: var(--green-deep); }
   .review-stars { color: var(--gold); font-size: 0.85rem; }
   .review-text { font-size: 0.88rem; color: var(--text-mid); line-height: 1.5; }
   .review-date { font-size: 0.78rem; color: var(--text-light); margin-top: 4px; }
-
-  /* ADMIN PANEL */
-  .admin-toggle {
-    text-align: center;
-    padding: 16px;
-    max-width: 520px;
-    margin: 0 auto;
-  }
-  .btn-admin {
-    background: transparent;
-    border: 1.5px dashed var(--text-light);
-    color: var(--text-light);
-    padding: 8px 20px;
-    border-radius: 20px;
-    font-family: 'Hind Siliguri', sans-serif;
-    font-size: 0.82rem;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  .btn-admin:hover { border-color: var(--green-mid); color: var(--green-mid); }
-
-  .admin-panel {
-    background: #1a1a2e;
-    border-radius: 16px;
-    padding: 24px 20px;
-    margin: 0 auto 24px;
-    max-width: 520px;
-    display: none;
-  }
-  .admin-panel.show { display: block; }
-  .admin-panel h3 { color: var(--gold-light); margin-bottom: 20px; font-size: 1rem; }
-
-  .admin-product-item {
-    background: rgba(255,255,255,0.07);
-    border-radius: 10px;
-    padding: 14px;
-    margin-bottom: 12px;
-  }
-  .admin-product-name { color: white; font-size: 0.9rem; margin-bottom: 8px; }
-  .file-upload-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--green-mid);
-    color: white;
-    padding: 7px 14px;
-    border-radius: 8px;
-    font-size: 0.82rem;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-  .file-upload-label:hover { background: var(--green-deep); }
-  .file-upload-label input { display: none; }
-  .upload-preview {
-    margin-top: 8px;
-    font-size: 0.78rem;
-    color: rgba(255,255,255,0.6);
-  }
-
-  .admin-review-form { margin-top: 20px; }
-  .admin-review-form .form-label { color: rgba(255,255,255,0.8); }
-  .admin-review-form .form-input,
-  .admin-review-form .form-textarea,
-  .admin-review-form .form-select {
-    background: rgba(255,255,255,0.1);
-    border-color: rgba(255,255,255,0.2);
-    color: white;
-  }
-  .admin-review-form .form-input::placeholder { color: rgba(255,255,255,0.4); }
-  .btn-add-review {
-    background: var(--gold);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-family: 'Hind Siliguri', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 600;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: background 0.2s;
-  }
-  .btn-add-review:hover { background: var(--gold-light); }
-
-  .admin-whatsapp-field { margin-top: 16px; }
-
-  /* FOOTER */
-  footer {
-    background: var(--green-deep);
-    color: rgba(255,255,255,0.7);
-    text-align: center;
-    padding: 24px 20px;
-    font-size: 0.82rem;
-  }
+  footer { background: var(--green-deep); color: rgba(255,255,255,0.7); text-align: center; padding: 24px 20px; font-size: 0.82rem; }
   footer strong { color: var(--gold-light); }
-
-  /* TOAST */
-  .toast {
-    position: fixed;
-    bottom: 24px;
-    left: 50%;
-    transform: translateX(-50%) translateY(80px);
-    background: var(--green-deep);
-    color: white;
-    padding: 12px 24px;
-    border-radius: 30px;
-    font-size: 0.88rem;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    transition: transform 0.35s cubic-bezier(.34,1.56,.64,1);
-    z-index: 999;
-    white-space: nowrap;
-  }
+  .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(80px); background: var(--green-deep); color: white; padding: 12px 24px; border-radius: 30px; font-size: 0.88rem; box-shadow: 0 4px 20px rgba(0,0,0,0.3); transition: transform 0.35s cubic-bezier(.34,1.56,.64,1); z-index: 999; white-space: nowrap; }
   .toast.show { transform: translateX(-50%) translateY(0); }
-
-  @media (max-width: 400px) {
-    .hero h1 { font-size: 1.6rem; }
-    .product-img-box { width: 64px; height: 64px; }
-  }
+  @media (max-width: 400px) { .hero h1 { font-size: 1.6rem; } .product-img-box { width: 64px; height: 64px; } }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">🌿 সিন্থিয়া <span>অর্গানিক ওয়েল</span></div>
   <ul class="nav-links">
@@ -495,7 +98,6 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <span class="hero-leaf">🌿</span>
   <h1>প্রকৃতির যত্নে<br><span>সুন্দর চুল</span></h1>
@@ -507,18 +109,13 @@
   </div>
 </div>
 
-<!-- PRODUCTS -->
-<div style="max-width:520px;margin:24px auto 0;padding:0 20px;">
-  <div class="products-section" id="products">
+<div style="padding:0 20px;" id="products">
+  <div class="products-section">
     <div class="section-title">আমাদের অফার</div>
     <div class="divider"></div>
     <p class="section-sub">আপনার পছন্দের কম্বো বেছে নিন</p>
-
     <div class="product-card" onclick="selectProduct(0)" id="card-0">
-      <div class="product-img-box" id="imgbox-0">
-        <span id="emoji-0">🫙</span>
-        <img id="img-0" src="" style="display:none;position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;">
-      </div>
+      <div class="product-img-box" id="imgbox-0"><span id="emoji-0">🫙</span><img id="img-0" src="" style="display:none;position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;"></div>
       <div class="product-info">
         <div class="product-name">অফার ১ — স্টুডেন্ট হেয়ার কম্বো</div>
         <div class="product-desc">শিক্ষার্থীদের জন্য বিশেষ কম্বো</div>
@@ -526,12 +123,8 @@
       </div>
       <div class="product-select-dot"></div>
     </div>
-
     <div class="product-card" onclick="selectProduct(1)" id="card-1">
-      <div class="product-img-box" id="imgbox-1">
-        <span id="emoji-1">🫙</span>
-        <img id="img-1" src="" style="display:none;position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;">
-      </div>
+      <div class="product-img-box" id="imgbox-1"><span id="emoji-1">🫙</span><img id="img-1" src="" style="display:none;position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;"></div>
       <div class="product-info">
         <div class="product-name">অফার ২ — মিডিয়াম হেয়ার কম্বো</div>
         <div class="product-desc">মধ্যম ব্যবহারের জন্য পারফেক্ট</div>
@@ -539,12 +132,8 @@
       </div>
       <div class="product-select-dot"></div>
     </div>
-
     <div class="product-card" onclick="selectProduct(2)" id="card-2">
-      <div class="product-img-box" id="imgbox-2">
-        <span id="emoji-2">🫙</span>
-        <img id="img-2" src="" style="display:none;position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;">
-      </div>
+      <div class="product-img-box" id="imgbox-2"><span id="emoji-2">🫙</span><img id="img-2" src="" style="display:none;position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;"></div>
       <div class="product-info">
         <div class="product-name">অফার ৩ — রেগুলার হেয়ার কম্বো</div>
         <div class="product-desc">নিয়মিত ব্যবহারের জন্য ফুল প্যাক</div>
@@ -555,194 +144,64 @@
   </div>
 </div>
 
-<!-- ORDER FORM -->
-<div style="max-width:520px;margin:0 auto;padding:0 20px;" id="order">
+<div style="padding:0 20px;" id="order">
   <div class="order-section">
     <div class="section-title">অর্ডার করুন</div>
     <div class="divider"></div>
-
+    <div class="form-group"><label class="form-label">আপনার নাম *</label><input class="form-input" id="f-name" type="text" placeholder="পূর্ণ নাম লিখুন"></div>
+    <div class="form-group"><label class="form-label">ফোন নম্বর *</label><input class="form-input" id="f-phone" type="tel" placeholder="01XXXXXXXXX"></div>
     <div class="form-group">
-      <label class="form-label">আপনার নাম *</label>
-      <input class="form-input" id="f-name" type="text" placeholder="পূর্ণ নাম লিখুন">
-    </div>
-
-    <div class="form-group">
-      <label class="form-label">ফোন নম্বর *</label>
-      <input class="form-input" id="f-phone" type="tel" placeholder="01XXXXXXXXX">
-    </div>
-
-    <div class="form-group">
-      <label class="form-label">আপনার জেলা / লোকেশন *</label>
+      <label class="form-label">আপনার জেলা *</label>
       <select class="form-select" id="f-location" onchange="updatePrice()">
         <option value="">— জেলা বেছে নিন —</option>
-        <optgroup label="ঢাকার ভেতরে">
-          <option value="dhaka">ঢাকা (ঢাকার ভেতরে)</option>
-        </optgroup>
+        <optgroup label="ঢাকার ভেতরে"><option value="dhaka">ঢাকা</option></optgroup>
         <optgroup label="ঢাকার বাইরে">
-          <option value="outside">চট্টগ্রাম</option>
-          <option value="outside">সিলেট</option>
-          <option value="outside">রাজশাহী</option>
-          <option value="outside">খুলনা</option>
-          <option value="outside">বরিশাল</option>
-          <option value="outside">রংপুর</option>
-          <option value="outside">ময়মনসিংহ</option>
-          <option value="outside">কুমিল্লা</option>
-          <option value="outside">নারায়ণগঞ্জ</option>
-          <option value="outside">গাজীপুর</option>
+          <option value="outside">চট্টগ্রাম</option><option value="outside">সিলেট</option>
+          <option value="outside">রাজশাহী</option><option value="outside">খুলনা</option>
+          <option value="outside">বরিশাল</option><option value="outside">রংপুর</option>
+          <option value="outside">ময়মনসিংহ</option><option value="outside">কুমিল্লা</option>
+          <option value="outside">নারায়ণগঞ্জ</option><option value="outside">গাজীপুর</option>
           <option value="outside">অন্যান্য জেলা</option>
         </optgroup>
       </select>
     </div>
-
-    <div class="form-group">
-      <label class="form-label">পূর্ণ ঠিকানা *</label>
-      <textarea class="form-textarea" id="f-address" placeholder="বাড়ি নং, রোড, এলাকা, থানা..."></textarea>
-    </div>
-
-    <!-- PRICE SUMMARY -->
+    <div class="form-group"><label class="form-label">পূর্ণ ঠিকানা *</label><textarea class="form-textarea" id="f-address" placeholder="বাড়ি নং, রোড, এলাকা, থানা..."></textarea></div>
     <div class="price-summary" id="price-summary" style="display:none;">
       <div class="price-row"><span>প্রোডাক্ট</span><span id="ps-product">—</span></div>
       <div class="price-row"><span>মূল্য</span><span id="ps-price">—</span></div>
       <div class="price-row"><span>ডেলিভারি চার্জ</span><span id="ps-delivery">—</span></div>
       <div class="price-total"><span>মোট পরিশোধযোগ্য</span><span id="ps-total">—</span></div>
     </div>
-
-    <div id="success-box" class="success-box">
-      <div class="success-icon">✅</div>
-      <h3>অর্ডার সফলভাবে পাঠানো হয়েছে!</h3>
-      <p>আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব ইনশাআল্লাহ।</p>
-    </div>
-
-    <button class="btn-order" id="order-btn" onclick="placeOrder()">
-      🛒 এখনই অর্ডার করুন
-    </button>
-
-    <a class="btn-whatsapp" id="wa-btn" href="#" target="_blank" style="display:none;">
-      💬 WhatsApp এ সরাসরি মেসেজ করুন
-    </a>
+    <div id="success-box" class="success-box"><div class="success-icon">✅</div><h3>অর্ডার সফলভাবে পাঠানো হয়েছে!</h3><p>আমরা শীঘ্রই আপনার সাথে যোগাযোগ করব ইনশাআল্লাহ।</p></div>
+    <button class="btn-order" id="order-btn" onclick="placeOrder()">🛒 এখনই অর্ডার করুন</button>
+    <a class="btn-whatsapp" id="wa-btn" href="#" target="_blank" style="display:none;">💬 WhatsApp এ সরাসরি মেসেজ করুন</a>
   </div>
 </div>
 
-<!-- REVIEWS -->
-<div style="max-width:520px;margin:0 auto;padding:0 20px;" id="reviews">
+<div style="padding:0 20px;" id="reviews">
   <div class="reviews-section">
     <div class="section-title">কাস্টমার রিভিউ</div>
     <div class="divider"></div>
     <div id="reviews-container">
-      <!-- default reviews -->
       <div class="review-card">
-        <div class="review-header">
-          <div class="review-avatar">ত</div>
-          <div>
-            <div class="review-name">তাসনিম আক্তার</div>
-            <div class="review-stars">★★★★★</div>
-          </div>
-        </div>
-        <div class="review-text">অসাধারণ প্রোডাক্ট! মাত্র ২ সপ্তাহেই চুল পড়া অনেক কমে গেছে। ১০০% অর্গানিক বলে স্ক্যাল্পেও কোনো সমস্যা হয়নি। 🌿</div>
+        <div class="review-header"><div class="review-avatar">ত</div><div><div class="review-name">তাসনিম আক্তার</div><div class="review-stars">★★★★★</div></div></div>
+        <div class="review-text">অসাধারণ প্রোডাক্ট! মাত্র ২ সপ্তাহেই চুল পড়া অনেক কমে গেছে। 🌿</div>
         <div class="review-date">জুন ২০২৬</div>
       </div>
       <div class="review-card">
-        <div class="review-header">
-          <div class="review-avatar">র</div>
-          <div>
-            <div class="review-name">রাহেলা বেগম</div>
-            <div class="review-stars">★★★★★</div>
-          </div>
-        </div>
-        <div class="review-text">দারুণ! চুল অনেক মসৃণ হয়েছে। ডেলিভারিও সময়মতো পেয়েছি। আবার অর্ডার করব ইনশাআল্লাহ।</div>
+        <div class="review-header"><div class="review-avatar">র</div><div><div class="review-name">রাহেলা বেগম</div><div class="review-stars">★★★★★</div></div></div>
+        <div class="review-text">দারুণ! চুল অনেক মসৃণ হয়েছে। ডেলিভারিও সময়মতো পেয়েছি।</div>
         <div class="review-date">মে ২০২৬</div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ADMIN TOGGLE -->
-<div class="admin-toggle">
-  <button class="btn-admin" onclick="toggleAdmin()">⚙️ অ্যাডমিন প্যানেল</button>
-</div>
-
-<!-- ADMIN PANEL -->
-<div class="admin-panel" id="admin-panel">
-  <h3>⚙️ অ্যাডমিন কন্ট্রোল প্যানেল</h3>
-
-  <!-- WhatsApp Number -->
-  <div class="admin-whatsapp-field">
-    <div class="form-label" style="color:rgba(255,255,255,0.8)">📱 আপনার WhatsApp নম্বর (দেশ কোড সহ)</div>
-    <input class="form-input" id="admin-wa-number" type="text" placeholder="880XXXXXXXXXX" style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white;" oninput="saveWaNumber()">
-    <div style="font-size:0.78rem;color:rgba(255,255,255,0.5);margin-top:4px;">যেমন: 8801711234567</div>
-  </div>
-
-  <!-- Product Images -->
-  <div style="margin-top:20px;">
-    <div class="form-label" style="color:rgba(255,255,255,0.8);margin-bottom:12px;">📸 প্রোডাক্টের ছবি আপলোড করুন</div>
-
-    <div class="admin-product-item">
-      <div class="admin-product-name">অফার ১ — স্টুডেন্ট কম্বো</div>
-      <label class="file-upload-label">
-        📁 ছবি বেছে নিন
-        <input type="file" accept="image/*" onchange="uploadProductImage(0, this)">
-      </label>
-      <div class="upload-preview" id="preview-0"></div>
-    </div>
-
-    <div class="admin-product-item">
-      <div class="admin-product-name">অফার ২ — মিডিয়াম কম্বো</div>
-      <label class="file-upload-label">
-        📁 ছবি বেছে নিন
-        <input type="file" accept="image/*" onchange="uploadProductImage(1, this)">
-      </label>
-      <div class="upload-preview" id="preview-1"></div>
-    </div>
-
-    <div class="admin-product-item">
-      <div class="admin-product-name">অফার ৩ — রেগুলার কম্বো</div>
-      <label class="file-upload-label">
-        📁 ছবি বেছে নিন
-        <input type="file" accept="image/*" onchange="uploadProductImage(2, this)">
-      </label>
-      <div class="upload-preview" id="preview-2"></div>
-    </div>
-  </div>
-
-  <!-- Add Review -->
-  <div class="admin-review-form">
-    <div class="form-label" style="color:rgba(255,255,255,0.8);margin-bottom:12px;">⭐ নতুন রিভিউ যোগ করুন</div>
-
-    <div class="form-group">
-      <label class="form-label">কাস্টমারের নাম</label>
-      <input class="form-input" id="rv-name" type="text" placeholder="নাম লিখুন" style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white;">
-    </div>
-    <div class="form-group">
-      <label class="form-label">রেটিং</label>
-      <select class="form-select" id="rv-stars" style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white;">
-        <option value="5">★★★★★ (৫/৫)</option>
-        <option value="4">★★★★☆ (৪/৫)</option>
-        <option value="3">★★★☆☆ (৩/৫)</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label class="form-label">রিভিউ টেক্সট</label>
-      <textarea class="form-textarea" id="rv-text" placeholder="রিভিউ লিখুন..." style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:white;"></textarea>
-    </div>
-    <div class="form-group">
-      <label class="form-label">কাস্টমারের ছবি (ঐচ্ছিক)</label>
-      <label class="file-upload-label">
-        📁 ছবি বেছে নিন
-        <input type="file" accept="image/*" id="rv-img-input" onchange="previewReviewImg(this)">
-      </label>
-      <div id="rv-img-preview" style="margin-top:6px;font-size:0.78rem;color:rgba(255,255,255,0.5);"></div>
-    </div>
-    <button class="btn-add-review" onclick="addReview()">✅ রিভিউ যোগ করুন</button>
-  </div>
-</div>
-
-<!-- FOOTER -->
 <footer>
   <strong>🌿 সিন্থিয়া অর্গানিক ওয়েল</strong><br>
   <span>১০০% প্রাকৃতিক • কেমিক্যাল মুক্ত • বাংলাদেশে তৈরি</span>
 </footer>
 
-<!-- TOAST -->
 <div class="toast" id="toast"></div>
 
 <script>
@@ -751,34 +210,24 @@
     { name: "অফার ২ — মিডিয়াম হেয়ার কম্বো", price: 750 },
     { name: "অফার ৩ — রেগুলার হেয়ার কম্বো", price: 1000 }
   ];
-
   let selectedProduct = -1;
-  let waNumber = "880XXXXXXXXXX";
-  let reviewImgData = null;
 
   function selectProduct(idx) {
     selectedProduct = idx;
-    document.querySelectorAll('.product-card').forEach((c, i) => {
-      c.classList.toggle('selected', i === idx);
-    });
+    document.querySelectorAll('.product-card').forEach((c, i) => c.classList.toggle('selected', i === idx));
     updatePrice();
     showToast("✅ " + products[idx].name + " বেছে নেওয়া হয়েছে");
   }
 
   function updatePrice() {
     const loc = document.getElementById('f-location').value;
-    if (selectedProduct < 0 || !loc) {
-      document.getElementById('price-summary').style.display = 'none';
-      return;
-    }
+    if (selectedProduct < 0 || !loc) { document.getElementById('price-summary').style.display = 'none'; return; }
     const p = products[selectedProduct];
     const delivery = loc === 'dhaka' ? 80 : 130;
     const total = p.price + delivery;
-    const deliveryLabel = loc === 'dhaka' ? 'ঢাকার ভেতরে' : 'ঢাকার বাইরে';
-
     document.getElementById('ps-product').textContent = p.name;
     document.getElementById('ps-price').textContent = '৳ ' + p.price;
-    document.getElementById('ps-delivery').textContent = '৳ ' + delivery + ' (' + deliveryLabel + ')';
+    document.getElementById('ps-delivery').textContent = '৳ ' + delivery + ' (' + (loc === 'dhaka' ? 'ঢাকার ভেতরে' : 'ঢাকার বাইরে') + ')';
     document.getElementById('ps-total').textContent = '৳ ' + total;
     document.getElementById('price-summary').style.display = 'block';
   }
@@ -789,104 +238,23 @@
     const loc = document.getElementById('f-location').value;
     const locText = document.getElementById('f-location').options[document.getElementById('f-location').selectedIndex].text;
     const address = document.getElementById('f-address').value.trim();
-
     if (!name) { showToast("⚠️ নাম দিন"); return; }
     if (!phone) { showToast("⚠️ ফোন নম্বর দিন"); return; }
     if (selectedProduct < 0) { showToast("⚠️ একটি প্রোডাক্ট বেছে নিন"); return; }
     if (!loc) { showToast("⚠️ লোকেশন বেছে নিন"); return; }
     if (!address) { showToast("⚠️ ঠিকানা দিন"); return; }
-
     const p = products[selectedProduct];
     const delivery = loc === 'dhaka' ? 80 : 130;
     const total = p.price + delivery;
-
     const msg = `🛒 *নতুন অর্ডার!*\n\n👤 নাম: ${name}\n📞 ফোন: ${phone}\n📦 প্রোডাক্ট: ${p.name}\n💰 মূল্য: ৳${p.price}\n🚚 ডেলিভারি: ৳${delivery} (${locText})\n💵 মোট: ৳${total}\n📍 ঠিকানা: ${address}`;
-
-    const savedWa = localStorage.getItem('waNumber') || waNumber;
-    const waUrl = `https://wa.me/${savedWa}?text=${encodeURIComponent(msg)}`;
-
+    const waNum = localStorage.getItem('waNumber') || '880XXXXXXXXXX';
+    const waUrl = `https://wa.me/${waNum}?text=${encodeURIComponent(msg)}`;
     document.getElementById('success-box').classList.add('show');
     document.getElementById('order-btn').disabled = true;
     document.getElementById('wa-btn').href = waUrl;
     document.getElementById('wa-btn').style.display = 'flex';
-
-    showToast("🎉 অর্ডার প্রস্তুত! WhatsApp এ পাঠান।");
+    showToast("🎉 WhatsApp এ পাঠান!");
     window.open(waUrl, '_blank');
-  }
-
-  function saveWaNumber() {
-    const num = document.getElementById('admin-wa-number').value.trim();
-    localStorage.setItem('waNumber', num);
-  }
-
-  function uploadProductImage(idx, input) {
-    const file = input.files[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = e => {
-      const imgEl = document.getElementById('img-' + idx);
-      const emojiEl = document.getElementById('emoji-' + idx);
-      imgEl.src = e.target.result;
-      imgEl.style.display = 'block';
-      emojiEl.style.display = 'none';
-      document.getElementById('preview-' + idx).textContent = '✅ আপলোড হয়েছে: ' + file.name;
-      localStorage.setItem('productImg-' + idx, e.target.result);
-      showToast("✅ ছবি আপলোড হয়েছে!");
-    };
-    reader.readAsDataURL(file);
-  }
-
-  function previewReviewImg(input) {
-    const file = input.files[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = e => {
-      reviewImgData = e.target.result;
-      document.getElementById('rv-img-preview').textContent = '✅ ' + file.name;
-    };
-    reader.readAsDataURL(file);
-  }
-
-  function addReview() {
-    const name = document.getElementById('rv-name').value.trim();
-    const stars = parseInt(document.getElementById('rv-stars').value);
-    const text = document.getElementById('rv-text').value.trim();
-    if (!name || !text) { showToast("⚠️ নাম ও রিভিউ দিন"); return; }
-
-    const starsStr = '★'.repeat(stars) + '☆'.repeat(5 - stars);
-    const avatarHtml = reviewImgData
-      ? `<img src="${reviewImgData}" alt="${name}">`
-      : name.charAt(0);
-
-    const months = ['জানুয়ারি','ফেব্রুয়ারি','মার্চ','এপ্রিল','মে','জুন','জুলাই','আগস্ট','সেপ্টেম্বর','অক্টোবর','নভেম্বর','ডিসেম্বর'];
-    const d = new Date();
-    const dateStr = months[d.getMonth()] + ' ' + d.getFullYear();
-
-    const card = document.createElement('div');
-    card.className = 'review-card';
-    card.innerHTML = `
-      <div class="review-header">
-        <div class="review-avatar">${avatarHtml}</div>
-        <div>
-          <div class="review-name">${name}</div>
-          <div class="review-stars">${starsStr}</div>
-        </div>
-      </div>
-      <div class="review-text">${text}</div>
-      <div class="review-date">${dateStr}</div>
-    `;
-    document.getElementById('reviews-container').prepend(card);
-
-    document.getElementById('rv-name').value = '';
-    document.getElementById('rv-text').value = '';
-    reviewImgData = null;
-    document.getElementById('rv-img-preview').textContent = '';
-    showToast("✅ রিভিউ যোগ করা হয়েছে!");
-  }
-
-  function toggleAdmin() {
-    const p = document.getElementById('admin-panel');
-    p.classList.toggle('show');
   }
 
   function showToast(msg) {
@@ -896,11 +264,7 @@
     setTimeout(() => t.classList.remove('show'), 2800);
   }
 
-  // Load saved data
   window.onload = () => {
-    const savedWa = localStorage.getItem('waNumber');
-    if (savedWa) document.getElementById('admin-wa-number').value = savedWa;
-
     for (let i = 0; i < 3; i++) {
       const saved = localStorage.getItem('productImg-' + i);
       if (saved) {
@@ -908,6 +272,20 @@
         document.getElementById('img-' + i).style.display = 'block';
         document.getElementById('emoji-' + i).style.display = 'none';
       }
+    }
+    // Load reviews from admin
+    const savedReviews = localStorage.getItem('adminReviews');
+    if (savedReviews) {
+      const reviews = JSON.parse(savedReviews);
+      const container = document.getElementById('reviews-container');
+      container.innerHTML = '';
+      reviews.forEach(r => {
+        const card = document.createElement('div');
+        card.className = 'review-card';
+        const avatarHtml = r.img ? `<img src="${r.img}" alt="${r.name}">` : r.name.charAt(0);
+        card.innerHTML = `<div class="review-header"><div class="review-avatar">${avatarHtml}</div><div><div class="review-name">${r.name}</div><div class="review-stars">${r.stars}</div></div></div><div class="review-text">${r.text}</div><div class="review-date">${r.date}</div>`;
+        container.appendChild(card);
+      });
     }
   };
 </script>
